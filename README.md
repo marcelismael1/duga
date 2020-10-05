@@ -1,6 +1,5 @@
 # Duga
-###Project 22
-
+### Project 22
 Systems vulnerabilities scanner.
 ### Team members:
 * Marcel Ismael
