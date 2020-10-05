@@ -1,0 +1,9 @@
+.Ds_Store
+.ipynb_checkpoints
+venv
+nvdcve*
+nvdcpe*
+allitems*
+config.ini
+*.log
+test*
