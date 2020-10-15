@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,33 +7,184 @@
         <title>Duga</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+
+        <!-- <link rel="stylesheet" type="text/css" href="/css/result-light.css"> -->
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
             
-            <nav class="mainnav">
-                <img src="./img/logo.svg" alt="DugaLogo" id="logo">
-                <ul class="nav_tabs">
-                    <li><a href="index.html"><img src="./img/ndahboard.svg" class="navimg"><span>Dashboard</span></a></li>
-                    <li><a href="#"><img src="./img/alarms.svg" class="navimg"><span>Alarms</span></a></li>
-                    <li><a href="#"><img src="./img/Configurations.svg" class="navimg"><span>Configurations</span></a></li>
-                    <li><a href="#"><img src="./img/aabout.svg" class="navimg"><span>About</span></a></li>
-                    
-                </ul>
+            <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+                <div class="container">
+                    <a href="#" class="navbar-brand logosize">
+
+                        <img src="./img/logo.svg" width="74" alt="" class="d-inline-block align-middle mr-2 logosize">
+
+                        <span class="text-capitalize font-weight-bold">Duga</span>
+                    </a>
+
+                    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                        class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item"><img src="./img/ndahboard.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size">
+                                </li>
+                                <li class="nav-item"><a href="./index.html" class="nav-link">Dashboard</a></li>
+                            </div>
+
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item"><img src="./img/Alarms.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"></li>
+                                <li class="nav-item"><a href="./Alarms.html" class="nav-link">Alarms</a></li>
+                            </div>
+
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item"><img src="./img/configurations.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"></li>
+                                <li class="nav-item"><a href="./Configurations.html" class="nav-link">Configurations</a></li>
+                            </div>
+
+                            <!-- <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item"><img src="./img/About.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"></li>
+                                <li class="nav-item"><a href="./About.html" class="nav-link" id="activetab">About</a></li>
+                            </div> -->
+
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item active"><img src="./img/aabout.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"><span class="sr-only">(current)</span>
+                                </li>
+                                <li class="nav-item active"><a href="./About.html" class="nav-link">About<span
+                                            class="sr-only">(current)</span></a></li>
+                            </div>
+
+                            <!-- <li class="nav-item"><img src="./img/About.svg" width="45" alt="" class="d-inline-block align-middle mr-2 size"></li>
+                        <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
+                        </ul>
+                    </div>
+                </div>
             </nav>
-
-            <div class="names">
-                
-
-            </div>
-
-            <div class="contact">
-
-            </div>
-
-        
+       
         </header>
 
+
+        <section>
+            <!-- <table class="table table-sm table-borderless">
+                <thead><h1 class="tname">Developers</h1>
+
+                </thead>
+                <tbody class="tname">
+                  <tr>
+                    <th scope="row"></th>
+                    <td><a><img src="./img/terminal.svg" class="navimg"><span class="names">Marcel Ismael</span></a></td>
+                    <td><a><img src="./img/terminal.svg" class="navimg"><span class="names">Abdelrahim Ahmad</span></a></td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td><a><img src="./img/terminal.svg" class="navimg"><span class="names">Lamis Ahmad</span></a></td>
+                    <td><a><img src="./img/terminal.svg" class="navimg"><span class="names">Nashwan Sulaiman</span></a></td>
+
+                  </tr>
+
+                </tbody>
+              </table> -->
+
+
+              <!-- <table class="table table-sm table-borderless">
+                <thead><h1 class="tname">Contact Us</h1>
+
+                </thead>
+                <tbody class="tname">
+                  <tr>
+                    <th scope="row"></th>
+                    <td><a><span class="names">Duga@cve_duga.com</span></a></td>
+                   
+
+                  </tr>
+
+
+                </tbody>
+              </table> -->
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="1503.147" height="498.5" viewBox="0 0 1503.147 498.5">
+                <g id="Group_398" data-name="Group 398" transform="translate(-108.853 -160)">
+                  <g id="Group_394" data-name="Group 394" transform="translate(-60)">
+                    <g id="terminal" transform="translate(170.486 284.388)">
+                      <path id="Path_450" data-name="Path 450" d="M4,34.128,21.56,19.564,4,5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                      <line id="Line_34" data-name="Line 34" x2="23.461" transform="translate(19.539 38.997)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                    </g>
+                    <text id="Marcel_Ismael" data-name="Marcel Ismael" transform="translate(341 320)" font-size="39" font-family="SourceSansPro-Regular, Source Sans Pro"><tspan x="-111.54" y="0">Marcel Ismael</tspan></text>
+                  </g>
+                  <text id="Developers" transform="translate(494 211)" stroke="#013044" stroke-width="2" font-size="50" font-family="SourceSansPro-Regular, Source Sans Pro"><tspan x="-117.125" y="0">Developers</tspan></text>
+                  <text id="Contact_Us" data-name="Contact Us" transform="translate(1332 211.5)" stroke="#013044" stroke-width="2" font-size="50" font-family="SourceSansPro-Regular, Source Sans Pro"><tspan x="-113.125" y="0">Contact Us</tspan></text>
+                  <line id="Line_35" data-name="Line 35" y2="496" transform="translate(960.5 162.5)" fill="none" stroke="#707070" stroke-width="7"/>
+                  <g id="Group_395" data-name="Group 395" transform="translate(-60 210)">
+                    <g id="terminal-2" data-name="terminal" transform="translate(170.486 284.388)">
+                      <path id="Path_450-2" data-name="Path 450" d="M4,34.128,21.56,19.564,4,5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                      <line id="Line_34-2" data-name="Line 34" x2="23.461" transform="translate(19.539 38.997)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                    </g>
+                    <text id="Lamis_Ahmad" data-name="Lamis Ahmad" transform="translate(341 320)" font-size="39" font-family="SourceSansPro-Regular, Source Sans Pro"><tspan x="-110.37" y="0">Lamis Ahmad</tspan></text>
+                  </g>
+                  <g id="Group_396" data-name="Group 396" transform="translate(350)">
+                    <g id="terminal-3" data-name="terminal" transform="translate(170.486 284.388)">
+                      <path id="Path_450-3" data-name="Path 450" d="M4,34.128,21.56,19.564,4,5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                      <line id="Line_34-3" data-name="Line 34" x2="23.461" transform="translate(19.539 38.997)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                    </g>
+                    <text id="Abdelrahim_Ahmad" data-name="Abdelrahim Ahmad" transform="translate(385 320)" font-size="39" font-family="SourceSansPro-Regular, Source Sans Pro"><tspan x="-156.488" y="0">Abdelrahim Ahmad</tspan></text>
+                  </g>
+                  <g id="Group_397" data-name="Group 397" transform="translate(350 210)">
+                    <g id="terminal-4" data-name="terminal" transform="translate(170.486 284.388)">
+                      <path id="Path_450-4" data-name="Path 450" d="M4,34.128,21.56,19.564,4,5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                      <line id="Line_34-4" data-name="Line 34" x2="23.461" transform="translate(19.539 38.997)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                    </g>
+                    <text id="Nashwan_Sulaiman" data-name="Nashwan Sulaiman" transform="translate(381 320)" font-size="39" font-family="SourceSansPro-Regular, Source Sans Pro"><tspan x="-156.702" y="0">Nashwan Sulaiman</tspan></text>
+                  </g>
+                  <text id="Duga_cve_duga.com" data-name="Duga@cve_duga.com" transform="translate(1363 440)" font-size="55" font-family="SourceSansPro-Regular, Source Sans Pro"><tspan x="-248.985" y="0">Duga@cve_duga.com</tspan></text>
+                </g>
+              </svg>
+              
+        </section>
+
+        <!-- <div class="about">
+
+            <div class="col left">
+                <h1>Developers</h1>
+                <ul class="deve">
+                    <li class="frow"><a><img src="./img/terminal.svg" class="navimg"><span>Marcel Ismael</span></a></li>
+                    <li class="frow"><a><img src="./img/terminal.svg" class="navimg"><span>Abdelrahim Ahmad</span></a></li>
+                    <li class="frow"><a><img src="./img/terminal.svg" class="navimg"><span>Lamis Ahmad</span></a></li>
+                    <li class="frow"><a><img src="./img/terminal.svg" class="navimg"><span>Nashwan Sulaiman</span></a></li>
+                </ul>
+    
+    
+            </div> -->
+
+            <!-- <div class="col"></div> -->
+    
+            <!-- <div class="col">
+                <h1>Contact Us</h1>
+                <a id="email">Duga@cve_duga.com</a>
+    
+            </div>
+
+            
+              
+
+
+    
+
+
+        </div> -->
+        
     </body>
 </html>

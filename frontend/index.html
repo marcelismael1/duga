@@ -1,31 +1,616 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Duga</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+
+        <!-- <link rel="stylesheet" type="text/css" href="/css/result-light.css"> -->
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            
         <link rel="stylesheet" href="style.css">
+        
+
     </head>
+
     <body>
         <header>
-            
-            <nav class="mainnav">
-                <img src="./img/logo.svg" alt="DugaLogo" id="logo">
-                <ul class="nav_tabs">
-                    <li><a href="#"><img src="./img/Dashboard.svg" class="navimg"><span>Dashboard</span></a></li>
-                    <li><a href="#"><img src="./img/Alarms.svg" class="navimg"><span>Alarms</span></a></li>
-                    <li><a href="#"><img src="./img/Configurations.svg" class="navimg"><span>Configurations</span></a></li>
-                    <li><a href="About.html"><img src="./img/About.svg" class="navimg"><span>About</span></a></li>
-                    
-                </ul>
+
+
+            <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+                <div class="container">
+                    <a href="#" class="navbar-brand logosize">
+
+                        <img src="./img/logo.svg" width="74" alt="" class="d-inline-block align-middle mr-2 logosize">
+
+                        <span class="text-capitalize font-weight-bold">Duga</span>
+                    </a>
+
+                    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                        class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item active"><img src="./img/Dashboard.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"><span class="sr-only">(current)</span>
+                                </li>
+                                <li class="nav-item active"><a href="./index.html" class="nav-link">Dashboard<span
+                                            class="sr-only">(current)</span></a></li>
+                            </div>
+
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item"><img src="./img/Alarms.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"></li>
+                                <li class="nav-item"><a href="Alarms.html" class="nav-link">Alarms</a></li>
+                            </div>
+
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item"><img src="./img/configurations.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"></li>
+                                <li class="nav-item"><a href="Configurations.html" class="nav-link">Configurations</a></li>
+                            </div>
+
+                            <div class="navbar-nav ml-auto menuhover">
+                                <li class="nav-item"><img src="./img/About.svg" width="45" alt=""
+                                        class="d-inline-block align-middle mr-2 size"></li>
+                                <li class="nav-item"><a href="./About.html" class="nav-link">About</a></li>
+                            </div>
+
+                            <!-- <li class="nav-item"><img src="./img/About.svg" width="45" alt="" class="d-inline-block align-middle mr-2 size"></li>
+                        <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
+                        </ul>
+                    </div>
+                </div>
             </nav>
+
+            <!-- <nav class="mainnav">
+                    <img src="./img/logo.svg" alt="DugaLogo" id="logo">
+                    <ul class="nav_tabs">
+                        <li><a href="#"><img src="./img/Dashboard.svg" class="navimg"><span>Dashboard</span></a></li>
+                        <li><a href="#"><img src="./img/Alarms.svg" class="navimg"><span>Alarms</span></a></li>
+                        <li><a href="#"><img src="./img/Configurations.svg" class="navimg"><span>Configurations</span></a></li>
+                        <li><a href="About.html"><img src="./img/About.svg" class="navimg"><span>About</span></a></li>
+                        
+                    </ul>
+                </nav> -->
         </header>
 
+        <section>
+
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1932" height="1012" viewBox="0 0 1932 1012">
+                <defs>
+                  <filter id="Bg" x="0" y="0" width="1932" height="494" filterUnits="userSpaceOnUse">
+                    <feOffset dy="1" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="2" result="blur"/>
+                    <feFlood flood-color="#152232" flood-opacity="0.078"/>
+                    <feComposite operator="in" in2="blur"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <clipPath id="clip-path">
+                    <rect x="-324" y="3" width="1876" height="275" fill="none"/>
+                  </clipPath>
+                  <clipPath id="clip-path-2">
+                    <rect y="48" width="1876" height="32" fill="none"/>
+                  </clipPath>
+                  <clipPath id="clip-path-3">
+                    <rect y="48" width="1876" height="43" fill="none"/>
+                  </clipPath>
+                  <filter id="Shape" x="0.5" y="484" width="1150.5" height="526" filterUnits="userSpaceOnUse">
+                    <feOffset dy="1" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="2" result="blur-2"/>
+                    <feFlood flood-color="#152232" flood-opacity="0.078"/>
+                    <feComposite operator="in" in2="blur-2"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <clipPath id="clip-path-6">
+                    <rect x="700" width="999" height="246.26" fill="none"/>
+                  </clipPath>
+                  <clipPath id="clip-path-7">
+                    <rect width="1400" height="246.26" fill="none"/>
+                  </clipPath>
+                  <filter id="Bg_" x="1142" y="484" width="401" height="528" filterUnits="userSpaceOnUse">
+                    <feOffset dy="1" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="2" result="blur-3"/>
+                    <feFlood flood-color="#152232" flood-opacity="0.078"/>
+                    <feComposite operator="in" in2="blur-3"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <filter id="Bg_2" x="1531" y="484" width="401" height="528" filterUnits="userSpaceOnUse">
+                    <feOffset dy="1" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="2" result="blur-4"/>
+                    <feFlood flood-color="#152232" flood-opacity="0.078"/>
+                    <feComposite operator="in" in2="blur-4"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                </defs>
+                <g id="Analytics_Traffic_Channels_Goal" data-name="Analytics Traffic Channels &amp; Goal" transform="translate(-2067 -3158)">
+                  <g transform="matrix(1, 0, 0, 1, 2067, 3158)" filter="url(#Bg)">
+                    <rect id="Bg-2" data-name="Bg" width="1920" height="482" rx="6" transform="translate(6 5)" fill="#fff"/>
+                  </g>
+                  <g id="Scroll_Group" data-name="Scroll Group" transform="translate(2445 3250)" clip-path="url(#clip-path)" style="isolation: isolate">
+                    <g id="Scroll_Group_2" data-name="Scroll Group 2" transform="translate(-324)" clip-path="url(#clip-path-2)" style="isolation: isolate">
+                      <g id="Row_-_Table" data-name="Row - Table" transform="translate(-3609.197 -3307)">
+                        <g id="Row" transform="translate(3609.197 3355)">
+                          <rect id="Background" width="1876" height="48" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm" data-name="Mar 21, 2019, 3:30pm" transform="translate(530 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">CVE-2019-1010298</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-2" data-name="Mar 21, 2019, 3:30pm" transform="translate(925 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">Critical</tspan></text>
+                          <text id="Payment_from_10321" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                          <text id="_250.00" data-name="+ $250.00" transform="translate(1573.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">50.23</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-3" data-name="Mar 21, 2019, 3:30pm" transform="translate(250 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">2020-Sep-27 18:20</tspan></text>
+                          <text id="_250.00-2" data-name="+ $250.00" transform="translate(1232.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">Chrome</tspan></text>
+                          <text id="Payment_from_10321-2" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                          <text id="v" transform="translate(156 252)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">v</tspan></text>
+                        </g>
+                        <g id="Row-2" data-name="Row" transform="translate(3609.197 3307)">
+                          <rect id="Background-2" data-name="Background" width="1847" height="48" transform="translate(0)" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm-4" data-name="Mar 21, 2019, 3:30pm" transform="translate(522 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">67,892</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-5" data-name="Mar 21, 2019, 3:30pm" transform="translate(921 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">26.3%</tspan></text>
+                          <text id="Payment_from_10321-3" data-name="Payment from #10321" transform="translate(70 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">Direct</tspan></text>
+                          <text id="_250.00-3" data-name="+ $250.00" transform="translate(1287.731 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">8.1%</tspan></text>
+                          <text id="_250.00-4" data-name="+ $250.00" transform="translate(1622.961 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">1132</tspan></text>
+                        </g>
+                      </g>
+                    </g>
+                    <g id="Scroll_Group_3" data-name="Scroll Group 3" transform="translate(-324 45)" clip-path="url(#clip-path-3)" style="isolation: isolate">
+                      <g id="Row_-_Table-2" data-name="Row - Table" transform="translate(-3609.197 -3307)">
+                        <g id="Row-3" data-name="Row" transform="translate(3609.197 3355)">
+                          <rect id="Background-3" data-name="Background" width="1876" height="48" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm-6" data-name="Mar 21, 2019, 3:30pm" transform="translate(530 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">CVE-2018-1010298</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-7" data-name="Mar 21, 2019, 3:30pm" transform="translate(925 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">Low</tspan></text>
+                          <text id="Payment_from_10321-4" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                          <text id="_250.00-5" data-name="+ $250.00" transform="translate(1554.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">1.3.00.24758</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-8" data-name="Mar 21, 2019, 3:30pm" transform="translate(250 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">2020-Sep-27 19:30</tspan></text>
+                          <text id="_250.00-6" data-name="+ $250.00" transform="translate(1227.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">Microsoft Teams</tspan></text>
+                          <text id="Payment_from_10321-5" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                        </g>
+                        <g id="Row-4" data-name="Row" transform="translate(3609.197 3307)">
+                          <rect id="Background-4" data-name="Background" width="1847" height="48" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm-9" data-name="Mar 21, 2019, 3:30pm" transform="translate(921 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">26.3%</tspan></text>
+                          <text id="_250.00-7" data-name="+ $250.00" transform="translate(1287.731 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">8.1%</tspan></text>
+                          <text id="_250.00-8" data-name="+ $250.00" transform="translate(1622.961 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">1132</tspan></text>
+                        </g>
+                      </g>
+                    </g>
+                    <g id="Scroll_Group_4" data-name="Scroll Group 4" transform="translate(-324 85)" clip-path="url(#clip-path-3)" style="isolation: isolate">
+                      <g id="Row_-_Table-3" data-name="Row - Table" transform="translate(-3609.197 -3307)">
+                        <g id="Row-5" data-name="Row" transform="translate(3609.197 3355)">
+                          <rect id="Background-5" data-name="Background" width="1876" height="48" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm-10" data-name="Mar 21, 2019, 3:30pm" transform="translate(530 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">CVE-2019-1012295</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-11" data-name="Mar 21, 2019, 3:30pm" transform="translate(925 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">Critical</tspan></text>
+                          <text id="Payment_from_10321-6" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                          <text id="_250.00-9" data-name="+ $250.00" transform="translate(1563.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">5.2.1.441</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-12" data-name="Mar 21, 2019, 3:30pm" transform="translate(250 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">2020-Sep-27 18:20</tspan></text>
+                          <text id="_250.00-10" data-name="+ $250.00" transform="translate(1190.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">Adobe Creative Cloud Desktop</tspan></text>
+                          <text id="Payment_from_10321-7" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                        </g>
+                        <g id="Row-6" data-name="Row" transform="translate(3609.197 3307)">
+                          <rect id="Background-6" data-name="Background" width="1847" height="48" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm-13" data-name="Mar 21, 2019, 3:30pm" transform="translate(921 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">26.3%</tspan></text>
+                          <text id="_250.00-11" data-name="+ $250.00" transform="translate(1287.731 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">8.1%</tspan></text>
+                          <text id="_250.00-12" data-name="+ $250.00" transform="translate(1622.961 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">1132</tspan></text>
+                        </g>
+                      </g>
+                    </g>
+                    <g id="Scroll_Group_5" data-name="Scroll Group 5" transform="translate(-324 125)" clip-path="url(#clip-path-3)" style="isolation: isolate">
+                      <g id="Row_-_Table-4" data-name="Row - Table" transform="translate(-3609.197 -3307)">
+                        <g id="Row-7" data-name="Row" transform="translate(3609.197 3355)">
+                          <rect id="Background-7" data-name="Background" width="1876" height="48" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm-14" data-name="Mar 21, 2019, 3:30pm" transform="translate(530 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">CVE-2019-2010298</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-15" data-name="Mar 21, 2019, 3:30pm" transform="translate(925 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">Meduim</tspan></text>
+                          <text id="Payment_from_10321-8" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                          <text id="_250.00-13" data-name="+ $250.00" transform="translate(1581.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">49</tspan></text>
+                          <text id="Mar_21_2019_3:30pm-16" data-name="Mar 21, 2019, 3:30pm" transform="translate(250 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">2020-Sep-27 18:20</tspan></text>
+                          <text id="_250.00-14" data-name="+ $250.00" transform="translate(1238.95 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">Firefox</tspan></text>
+                          <text id="Payment_from_10321-9" data-name="Payment from #10321" transform="translate(71 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">210.x.x.x</tspan></text>
+                        </g>
+                        <g id="Row-8" data-name="Row" transform="translate(3609.197 3307)">
+                          <rect id="Background-8" data-name="Background" width="1847" height="48" fill="none"/>
+                          <text id="Mar_21_2019_3:30pm-17" data-name="Mar 21, 2019, 3:30pm" transform="translate(921 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">26.3%</tspan></text>
+                          <text id="_250.00-15" data-name="+ $250.00" transform="translate(1287.731 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">8.1%</tspan></text>
+                          <text id="_250.00-16" data-name="+ $250.00" transform="translate(1622.961 29)" fill="#131523" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.014em"><tspan x="0" y="0">1132</tspan></text>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g id="Widgets_Table_Table_Header" data-name="Widgets / Table / Table Header" transform="translate(2120 3253)">
+                    <rect id="Shape-2" data-name="Shape" width="1860" height="48" fill="#f5f6fa"/>
+                    <text id="Payment_Number" data-name="Payment Number" transform="translate(71 29)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="0.073em"><tspan x="0" y="0">SYSTEM IP</tspan></text>
+                    <text id="Date_time" data-name="Date &amp; time" transform="translate(288 29)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="0.073em"><tspan x="0" y="0">DATE</tspan></text>
+                    <text id="Date_time-2" data-name="Date &amp; time" transform="translate(921 29)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="0.073em"><tspan x="0" y="0">SEVERITY</tspan></text>
+                    <text id="amount" transform="translate(1544.359 29)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="0.073em"><tspan x="0" y="0">PACKAGE NUMBER</tspan></text>
+                    <text id="Date_time-3" data-name="Date &amp; time" transform="translate(561 29)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="0.073em"><tspan x="0" y="0">CVE NO.</tspan></text>
+                    <text id="amount-2" data-name="amount" transform="translate(1207.358 29)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="0.073em"><tspan x="0" y="0">AFFECTED PACKAGES</tspan></text>
+                  </g>
+                  <text id="Transaction_History" data-name="Transaction History" transform="translate(2135.44 3232.365)" fill="#171725" font-size="18" font-family="SegoeUI, Segoe UI" letter-spacing="0.006em"><tspan x="0" y="0">Latest 10 Alarms</tspan></text>
+                </g>
+                <g id="Monthly_Alarm" data-name="Monthly Alarm" transform="translate(-285 -1734)">
+                  <g transform="matrix(1, 0, 0, 1, 285, 1734)" filter="url(#Shape)">
+                    <rect id="Shape-3" data-name="Shape" width="1138.5" height="514" rx="6" transform="translate(6.5 489)" fill="#fff"/>
+                  </g>
+                  <g id="Value" transform="translate(320.596 2357)">
+                    <g id="Chart_-_Left_Value" data-name="Chart - Left Value" transform="translate(21 296)">
+                      <rect id="Shape-4" data-name="Shape" width="1019" height="1.344" transform="translate(38.792 15)" fill="#f1f1f5"/>
+                      <text id="_1k" data-name="$1k" transform="translate(8.788 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-6.469" y="0">0</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-2" data-name="Chart - Left Value" transform="translate(16 259)">
+                      <rect id="Shape-5" data-name="Shape" width="1019" height="1.344" transform="translate(43.792 15)" fill="#f1f1f5"/>
+                      <text id="_1k-2" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">10</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-3" data-name="Chart - Left Value" transform="translate(17.152 222)">
+                      <rect id="Shape-6" data-name="Shape" width="1019" height="1.344" transform="translate(42.64 15)" fill="#f1f1f5"/>
+                      <text id="_1k-3" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">20</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-4" data-name="Chart - Left Value" transform="translate(17.152 185)">
+                      <rect id="Shape-7" data-name="Shape" width="1019" height="1.344" transform="translate(42.64 15)" fill="#f1f1f5"/>
+                      <text id="_1k-4" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">30</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-5" data-name="Chart - Left Value" transform="translate(17.534 148)">
+                      <rect id="Shape-8" data-name="Shape" width="1019" height="1.344" transform="translate(42.258 15)" fill="#f1f1f5"/>
+                      <text id="_1k-5" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">40</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-6" data-name="Chart - Left Value" transform="translate(17.534 111)">
+                      <rect id="Shape-9" data-name="Shape" width="1019" height="1.344" transform="translate(42.258 15)" fill="#f1f1f5"/>
+                      <text id="_1k-6" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">50</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-7" data-name="Chart - Left Value" transform="translate(17.534 74)">
+                      <rect id="Shape-10" data-name="Shape" width="1019" height="1.344" transform="translate(42.258 15)" fill="#f1f1f5"/>
+                      <text id="_1k-7" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">60</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-8" data-name="Chart - Left Value" transform="translate(17.152 37)">
+                      <rect id="Shape-11" data-name="Shape" width="1019" height="1.344" transform="translate(42.64 15)" fill="#f1f1f5"/>
+                      <text id="_1k-8" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">70</tspan></text>
+                    </g>
+                    <g id="Chart_-_Left_Value-9" data-name="Chart - Left Value" transform="translate(17.534)">
+                      <rect id="Shape-12" data-name="Shape" width="1019" height="1.344" transform="translate(42.258 15)" fill="#f1f1f5"/>
+                      <text id="_1k-9" data-name="$1k" transform="translate(13 13)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-12.938" y="0">80</tspan></text>
+                    </g>
+                  </g>
+                  <g id="legend" transform="translate(13218 2293)">
+                    <g id="Income" transform="translate(-12813)">
+                      <rect id="Shape-13" data-name="Shape" width="10" height="10" rx="5" transform="translate(0 5)" fill="red"/>
+                      <text id="Marketing_Sales" data-name="Marketing Sales" transform="translate(18 15)" fill="#5a607f" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">Critical</tspan></text>
+                    </g>
+                    <g id="Online" transform="translate(-12896)">
+                      <rect id="Shape-14" data-name="Shape" width="10" height="10" rx="5" transform="translate(0 5)" fill="#21d59b"/>
+                      <text id="Marketing_Sales-2" data-name="Marketing Sales" transform="translate(18 15)" fill="#5a607f" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">Low</tspan></text>
+                    </g>
+                  </g>
+                  <text id="Sales_Report" data-name="Sales Report" transform="translate(332.185 2273.277)" fill="#131523" font-size="18" font-family="SegoeUI, Segoe UI" letter-spacing="0.006em"><tspan x="0" y="0">Monthly Alarm</tspan></text>
+                  <g id="Scroll_Group-2" data-name="Scroll Group" transform="translate(-320.5 2449)" clip-path="url(#clip-path-6)" style="isolation: isolate">
+                    <g id="Bar_Graph" data-name="Bar Graph" clip-path="url(#clip-path-7)">
+                      <g transform="translate(-410.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1951)">
+                          <text id="Month" transform="translate(18 169.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-16.702" y="0">Jan 19</tspan></text>
+                          <g id="Bars" transform="translate(5 -73)">
+                            <path id="Blue_Bar" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V134a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 85)" fill="#0062ff"/>
+                            <path id="Green_Bar" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V146a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 73)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(-351.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-2" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 2002)">
+                          <text id="Month-2" data-name="Month" transform="translate(18 118.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.707" y="0">Feb 19</tspan></text>
+                          <g id="Bars-2" data-name="Bars" transform="translate(5 -124)">
+                            <path id="Blue_Bar-2" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V95a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 124)" fill="#0062ff"/>
+                            <path id="Green_Bar-2" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V55a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 164)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(-292.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-3" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 1878)">
+                          <text id="Month-3" data-name="Month" transform="translate(19 242.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.639" y="0">Mar 19</tspan></text>
+                          <g id="Bars-3" data-name="Bars" transform="translate(6)">
+                            <path id="Blue_Bar-3" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V219a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15)" fill="#0062ff"/>
+                            <path id="Green_Bar-3" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V191a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 28)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(-233.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-4" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1960)">
+                          <text id="Month-4" data-name="Month" transform="translate(18 160.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.596" y="0">Apr 19</tspan></text>
+                          <g id="Bars-4" data-name="Bars" transform="translate(5 -82)">
+                            <path id="Blue_Bar-4" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V137a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 82)" fill="#0062ff"/>
+                            <path id="Green_Bar-4" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V85a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 134)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(-174.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-5" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(410.5 1984)">
+                          <text id="Month-5" data-name="Month" transform="translate(20 136.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-19.456" y="0">May 19</tspan></text>
+                          <g id="Bars-5" data-name="Bars" transform="translate(7 -106)">
+                            <path id="Blue_Bar-5" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V113a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 106)" fill="#0062ff"/>
+                            <path id="Green_Bar-5" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V43a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 176)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(-115.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-6" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1916)">
+                          <text id="Month-6" data-name="Month" transform="translate(18 204.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.045" y="0">Jun 19</tspan></text>
+                          <g id="Bars-6" data-name="Bars" transform="translate(5 -38)">
+                            <path id="Blue_Bar-6" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V181a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 38)" fill="#0062ff"/>
+                            <path id="Green_Bar-6" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V65a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 154)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(-56.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-7" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(414.5 1906)">
+                          <text id="Month-7" data-name="Month" transform="translate(16 214.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-15.103" y="0">Jul 19</tspan></text>
+                          <g id="Bars-7" data-name="Bars" transform="translate(3 -28)">
+                            <path id="Blue_Bar-7" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V39a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(28 180)" fill="#0062ff"/>
+                            <path id="Green_Bar-7" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V191a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 28)" fill="#29cb97"/>
+                            <path id="Green_Bar-8" data-name="Green Bar" d="M4,0C6.209,0,8,1.195,8,2.668V127.408H0V2.668C0,1.195,1.791,0,4,0Z" transform="translate(2 91.592)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(2.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-8" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 1964)">
+                          <text id="Month-8" data-name="Month" transform="translate(19 156.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.911" y="0">Aug 19</tspan></text>
+                          <g id="Bars-8" data-name="Bars" transform="translate(6 -86)">
+                            <path id="Blue_Bar-8" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V115a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 104)" fill="#0062ff"/>
+                            <path id="Green_Bar-9" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V133a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 86)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(61.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-9" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 1898)">
+                          <text id="Month-9" data-name="Month" transform="translate(19 222.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.965" y="0">Sep 19</tspan></text>
+                          <g id="Bars-9" data-name="Bars" transform="translate(6 -20)">
+                            <path id="Blue_Bar-9" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V63a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 156)" fill="#0062ff"/>
+                            <path id="Green_Bar-10" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V199a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 20)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(120.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-10" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1998)">
+                          <text id="Month-10" data-name="Month" transform="translate(18 122.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.44" y="0">Oct 19</tspan></text>
+                          <g id="Bars-10" data-name="Bars" transform="translate(5 -120)">
+                            <path id="Blue_Bar-10" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V92a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 127)" fill="#0062ff"/>
+                            <path id="Green_Bar-11" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V99a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 120)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(179.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-11" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 1993)">
+                          <text id="Month-11" data-name="Month" transform="translate(19 127.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.99" y="0">Nov 19</tspan></text>
+                          <g id="Bars-11" data-name="Bars" transform="translate(6 -115)">
+                            <path id="Blue_Bar-11" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V79a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 140)" fill="#0062ff"/>
+                            <path id="Green_Bar-12" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V104a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 115)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(238.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-12" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 2012)">
+                          <text id="Month-12" data-name="Month" transform="translate(19 108.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.229" y="0">Dec 19</tspan></text>
+                          <g id="Bars-12" data-name="Bars" transform="translate(6 -134)">
+                            <path id="Blue_Bar-12" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V85a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 134)" fill="#0062ff"/>
+                            <path id="Green_Bar-13" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V40a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 179)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(297.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-13" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(413.5 1957)">
+                          <text id="Month-13" data-name="Month" transform="translate(17 163.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-16.702" y="0">Jan 20</tspan></text>
+                          <g id="Bars-13" data-name="Bars" transform="translate(4 -79)">
+                            <path id="Blue_Bar-13" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V51a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 168)" fill="red"/>
+                            <path id="Green_Bar-14" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V140a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 79)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(356.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-14" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1948)">
+                          <text id="Month-14" data-name="Month" transform="translate(18 172.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.707" y="0">Feb 20</tspan></text>
+                          <g id="Bars-14" data-name="Bars" transform="translate(5 -70)">
+                            <path id="Blue_Bar-14" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V116a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 103)" fill="red"/>
+                            <path id="Green_Bar-15" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V149a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 70)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(415.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-15" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 1879)">
+                          <text id="Month-15" data-name="Month" transform="translate(19 241.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.639" y="0">Mar 20</tspan></text>
+                          <g id="Bars-15" data-name="Bars" transform="translate(6 -1)">
+                            <path id="Blue_Bar-15" data-name="Blue Bar" d="M4,0A4,4,0,0,1,8,4V163H0V4A4,4,0,0,1,4,0Z" transform="translate(15 56)" fill="red"/>
+                            <path id="Green_Bar-16" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V218a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 1)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(474.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-16" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1974)">
+                          <text id="Month-16" data-name="Month" transform="translate(18 146.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.596" y="0">Apr 20</tspan></text>
+                          <g id="Bars-16" data-name="Bars" transform="translate(5 -96)">
+                            <path id="Blue_Bar-16" data-name="Blue Bar" d="M4,0A4,4,0,0,1,8,4V123H0V4A4,4,0,0,1,4,0Z" transform="translate(15 96)" fill="red"/>
+                            <path id="Green_Bar-17" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V54a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 165)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(533.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-17" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 1917)">
+                          <text id="Month-17" data-name="Month" transform="translate(19 203.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-19.456" y="0">May 20</tspan></text>
+                          <g id="Bars-17" data-name="Bars" transform="translate(6 -39)">
+                            <path id="Blue_Bar-17" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V180a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 39)" fill="red"/>
+                            <path id="Green_Bar-18" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V40a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 179)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(592.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-18" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(413.5 1960)">
+                          <text id="Month-18" data-name="Month" transform="translate(17 160.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.045" y="0">Jun 20</tspan></text>
+                          <g id="Bars-18" data-name="Bars" transform="translate(4 -82)">
+                            <path id="Blue_Bar-18" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V104a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 115)" fill="red"/>
+                            <path id="Green_Bar-19" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V137a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 82)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(651.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-19" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(415.5 1951)">
+                          <text id="Month-19" data-name="Month" transform="translate(15 169.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-15.103" y="0">Jul 20</tspan></text>
+                          <g id="Bars-19" data-name="Bars" transform="translate(2 -73)">
+                            <path id="Blue_Bar-19" data-name="Blue Bar" d="M4,0A4,4,0,0,1,8,4V146H0V4A4,4,0,0,1,4,0Z" transform="translate(15 73)" fill="red"/>
+                            <path id="Green_Bar-20" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4v99a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 116)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(710.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-20" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 1914)">
+                          <text id="Month-20" data-name="Month" transform="translate(19 206.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.911" y="0">Aug 20</tspan></text>
+                          <g id="Bars-20" data-name="Bars" transform="translate(6 -36)">
+                            <path id="Blue_Bar-20" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V183a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 36)" fill="red"/>
+                            <path id="Green_Bar-21" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V138a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 81)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(769.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-21" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1957)">
+                          <text id="Month-21" data-name="Month" transform="translate(18 163.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.965" y="0">Sep 20</tspan></text>
+                          <g id="Bars-21" data-name="Bars" transform="translate(5 -79)">
+                            <path id="Blue_Bar-21" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V140a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 79)" fill="red"/>
+                            <path id="Green_Bar-22" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V70a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 149)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(828.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-22" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(413.5 1906)">
+                          <text id="Month-22" data-name="Month" transform="translate(17 214.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-17.44" y="0">Oct 20</tspan></text>
+                          <g id="Bars-22" data-name="Bars" transform="translate(4 -28)">
+                            <path id="Blue_Bar-22" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V111a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 108)" fill="red"/>
+                            <path id="Green_Bar-23" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V191a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 28)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(887.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-23" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(411.5 2027)">
+                          <text id="Month-23" data-name="Month" transform="translate(19 93.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.99" y="0">Nov 20</tspan></text>
+                          <g id="Bars-23" data-name="Bars" transform="translate(6 -149)">
+                            <path id="Blue_Bar-23" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V34a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 185)" fill="red"/>
+                            <path id="Green_Bar-24" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V70a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 149)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g transform="translate(946.5 -1878)">
+                        <g id="Widgets__Elements_Chart_Graph_-_Double_Bar-24" data-name="Widgets / _Elements / Chart / Graph - Double Bar" transform="translate(412.5 1943)">
+                          <text id="Month-24" data-name="Month" transform="translate(18 177.26)" fill="#7e84a3" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-18.229" y="0">Dec 20</tspan></text>
+                          <g id="Bars-24" data-name="Bars" transform="translate(5 -65)">
+                            <path id="Blue_Bar-24" data-name="Blue Bar" d="M4,0H4A4,4,0,0,1,8,4V154a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(15 65)" fill="red"/>
+                            <path id="Green_Bar-25" data-name="Green Bar" d="M4,0H4A4,4,0,0,1,8,4V121a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" transform="translate(2 98)" fill="#29cb97"/>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g id="Buttons_Btn_text_icon" data-name="Buttons / Btn text icon" transform="translate(1297 2253)">
+                    <g id="Type" fill="#fff" stroke="#d7dbec" stroke-miterlimit="10" stroke-width="1">
+                      <rect width="96" height="36" rx="4" stroke="none"/>
+                      <rect x="0.5" y="0.5" width="95" height="35" rx="3.5" fill="none"/>
+                    </g>
+                    <g id="Download_Button" data-name="Download Button" transform="translate(-656 6)">
+                      <text id="Text" transform="translate(700 17)" fill="#5a607f" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.007em"><tspan x="0" y="0">Export</tspan></text>
+                      <g id="Icons_Navigation_icon_12_states_" data-name="Icons / Navigation icon (12 states)" transform="translate(668)">
+                        <g id="ic-file-download">
+                          <path id="Path_437" data-name="Path 437" d="M0,0H24V24H0Z" fill="none"/>
+                          <path id="Path_438" data-name="Path 438" d="M14,3V7a1,1,0,0,0,1,1h4" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                          <path id="Path_439" data-name="Path 439" d="M17,21H7a2,2,0,0,1-2-2V5A2,2,0,0,1,7,3h7l5,5V19A2,2,0,0,1,17,21Z" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                          <line id="Line_29" data-name="Line 29" y2="6" transform="translate(12 11)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                          <path id="Path_440" data-name="Path 440" d="M9,14l3,3,3-3" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <g id="Total_Severity_" data-name="Total Severity " transform="translate(14106.6 -152.052)">
+                  <g transform="matrix(1, 0, 0, 1, -14106.6, 152.05)" filter="url(#Bg_)">
+                    <rect id="Bg_3" data-name="Bg " width="389" height="516" rx="6" transform="translate(1148 489)" fill="#fff"/>
+                  </g>
+                  <rect id="Line" width="333" height="1" transform="translate(-12930.6 1156.052)" fill="#e6e9f4"/>
+                  <g id="Breakdown_by_Severity" data-name="Breakdown by Severity" transform="translate(-12930.18 924.052)">
+                    <g id="Item_" data-name="Item " transform="translate(0 109)">
+                      <text id="Critical" transform="translate(30.58 13)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Critical</tspan></text>
+                      <rect id="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#f90000"/>
+                      <text id="_50_" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">10%</tspan></text>
+                    </g>
+                    <g id="Item_2" data-name="Item " transform="translate(0 73)">
+                      <text id="High" transform="translate(30.58 14)" fill="#131523" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">High</tspan></text>
+                      <rect id="Rectangle-2" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#ffc700"/>
+                      <text id="_50_2" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">15%</tspan></text>
+                    </g>
+                    <g id="Item_3" data-name="Item " transform="translate(0 36)">
+                      <text id="Meduim" transform="translate(30.58 13)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Meduim</tspan></text>
+                      <rect id="Rectangle-3" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#0058ff"/>
+                      <text id="_50_3" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">25%</tspan></text>
+                    </g>
+                    <g id="Item_4" data-name="Item " transform="translate(0 0)">
+                      <text id="Low" transform="translate(30.58 13)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Low</tspan></text>
+                      <rect id="Rectangle-4" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#21d59b"/>
+                      <text id="_50_4" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">50%</tspan></text>
+                    </g>
+                  </g>
+                  <g id="Item_5" data-name="Item " transform="translate(-12866.259 700.329)">
+                    <g id="Diagram" transform="translate(0)">
+                      <path id="Circle" d="M101.962,0a101.962,101.962,0,1,1-88.3,50.981A101.958,101.958,0,0,1,101.962,0V13.595a88.367,88.367,0,1,0,76.528,44.184,88.366,88.366,0,0,0-76.528-44.184Z" transform="translate(0)" fill="rgba(69,90,100,0)"/>
+                      <path id="Segment" d="M0,0A102.012,102.012,0,0,1,55.5,16.427L48.1,27.836A88.4,88.4,0,0,0,0,13.595Z" transform="translate(103.095 3.399)" fill="#ffc700"/>
+                      <path id="Segment-2" data-name="Segment" d="M7.4,0A101.961,101.961,0,0,1,53.723,90.826a101.986,101.986,0,0,1-16.96,51.23l-11.318-7.534a88.365,88.365,0,0,0,5.642-88.186A88.319,88.319,0,0,0,0,11.408Z" transform="translate(151.199 19.826)" fill="#21d59b"/>
+                      <path id="Segment-3" data-name="Segment" d="M186.828,146.973A101.966,101.966,0,1,1,54.911,0l6.276,12.054A88.367,88.367,0,1,0,175.51,139.439Z" transform="translate(1.134 14.909)" fill="#0058ff"/>
+                      <path id="Segment-4" data-name="Segment" d="M0,11.51A102,102,0,0,1,47.05,0V13.595a88.4,88.4,0,0,0-40.774,9.97Z" transform="translate(56.045 3.399)" fill="#f90000"/>
+                    </g>
+                  </g>
+                  <text id="New_Customers" data-name="New Customers" transform="translate(-12930.6 689.052)" fill="#131523" font-size="16" font-family="SegoeUI, Segoe UI" letter-spacing="0.006em"><tspan x="0" y="0">Severity Of Found Alarms</tspan></text>
+                </g>
+                <g id="Total_Severity_2" data-name="Total Severity " transform="translate(14495.6 -152.052)">
+                  <g transform="matrix(1, 0, 0, 1, -14495.6, 152.05)" filter="url(#Bg_2)">
+                    <rect id="Bg_4" data-name="Bg " width="389" height="516" rx="6" transform="translate(1537 489)" fill="#fff"/>
+                  </g>
+                  <rect id="Line-2" data-name="Line" width="333" height="1" transform="translate(-12930.6 1156.052)" fill="#e6e9f4"/>
+                  <g id="Breakdown_by_Severity-2" data-name="Breakdown by Severity" transform="translate(-12930.18 924.052)">
+                    <g id="Item_6" data-name="Item " transform="translate(0 109)">
+                      <text id="Critical-2" data-name="Critical" transform="translate(30.58 13)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Critical</tspan></text>
+                      <rect id="Rectangle-5" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#f90000"/>
+                      <text id="_50_5" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">10%</tspan></text>
+                    </g>
+                    <g id="Item_7" data-name="Item " transform="translate(0 73)">
+                      <text id="High-2" data-name="High" transform="translate(30.58 14)" fill="#131523" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">High</tspan></text>
+                      <rect id="Rectangle-6" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#ffc700"/>
+                      <text id="_50_6" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">15%</tspan></text>
+                    </g>
+                    <g id="Item_8" data-name="Item " transform="translate(0 36)">
+                      <text id="Meduim-2" data-name="Meduim" transform="translate(30.58 13)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Meduim</tspan></text>
+                      <rect id="Rectangle-7" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#0058ff"/>
+                      <text id="_50_7" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">25%</tspan></text>
+                    </g>
+                    <g id="Item_9" data-name="Item " transform="translate(0 0)">
+                      <text id="Low-2" data-name="Low" transform="translate(30.58 13)" fill="#131523" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Low</tspan></text>
+                      <rect id="Rectangle-8" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-0.42 5)" fill="#21d59b"/>
+                      <text id="_50_8" data-name="50%" transform="translate(285.58)" fill="#131523" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="18.754" y="15">50%</tspan></text>
+                    </g>
+                  </g>
+                  <g id="Item_10" data-name="Item " transform="translate(-12837.096 729.815)">
+                    <g id="Diagram-2" data-name="Diagram" transform="translate(0)">
+                      <path id="Circle-2" data-name="Circle" d="M72.961,0A72.961,72.961,0,1,1,9.777,36.48,72.958,72.958,0,0,1,72.961,0V9.728a63.233,63.233,0,1,0,54.761,31.616A63.232,63.232,0,0,0,72.961,9.728Z" transform="translate(0)" fill="rgba(69,90,100,0)"/>
+                      <path id="Segment-5" data-name="Segment" d="M0,0A73,73,0,0,1,39.715,11.755l-5.294,8.163A63.255,63.255,0,0,0,0,9.728Z" transform="translate(73.771 2.432)" fill="#ffc700"/>
+                      <path id="Segment-6" data-name="Segment" d="M5.294,0A72.959,72.959,0,0,1,38.442,64.992,72.977,72.977,0,0,1,26.306,101.65l-8.1-5.391a63.231,63.231,0,0,0,4.037-63.1A63.2,63.2,0,0,0,0,8.163Z" transform="translate(108.192 14.187)" fill="#21d59b"/>
+                      <path id="Segment-7" data-name="Segment" d="M133.687,105.169A72.963,72.963,0,1,1,39.293,0l4.491,8.626a63.232,63.232,0,1,0,81.805,91.152Z" transform="translate(0.811 10.668)" fill="#0058ff"/>
+                      <path id="Segment-8" data-name="Segment" d="M0,8.236A72.984,72.984,0,0,1,33.667,0V9.728A63.253,63.253,0,0,0,4.491,16.862Z" transform="translate(40.104 2.432)" fill="#f90000"/>
+                    </g>
+                  </g>
+                  <text id="New_Customers-2" data-name="New Customers" transform="translate(-12930.6 689.052)" fill="#131523" font-size="16" font-family="SegoeUI, Segoe UI" letter-spacing="0.006em"><tspan x="0" y="0">Total Severity</tspan></text>
+                </g>
+              </svg>
+              
+
+        </section>
+
+  
+
     </body>
+	
+	
+
 </html>
