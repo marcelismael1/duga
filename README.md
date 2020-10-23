@@ -7,4 +7,4 @@ Systems vulnerabilities scanner.
 * Nashwan Sulaiman
 * Lamis Ahmad
 
-Test THe commit #1, send notification to Slack.
+
