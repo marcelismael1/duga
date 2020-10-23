@@ -1,13 +1,22 @@
-from mongoengine import 
+from mongoengine import *
 import datetime
+import configparser
+
+
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# Mongo
+mongodb = config['db']['mongodb']
+mongoport = int(config['db']['mongoport'])
+cve_collection = config['db']['cve_collection']
+mongo_database = config['db']['mongodatabase']
 
 connect(
-    db=Duga,
-    username=root,
-    password=,
-    authentication_source=,
-    host=localhost,
-    port=27017
+    db=mongo_database,
+    host=mongodb,
+    port=mongoport
 )
 
 #Creating a collection and document schema
