@@ -1,5 +1,6 @@
 .Ds_Store
 .ipynb_checkpoints
+*.ipynb
 venv
 nvdcve*
 nvdcpe*
