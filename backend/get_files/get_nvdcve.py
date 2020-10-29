@@ -25,7 +25,7 @@ def log(log_message):
         fp.write(current_time+"  "+log_message+'\n')
 
 # Change working directory
-os.chdir(dir_path+'/nvdcve_files')
+os.chdir(dir_path+'/files')
 nvdcve_files_dir = os.getcwd()
 all_files = os.listdir(nvdcve_files_dir)
 
