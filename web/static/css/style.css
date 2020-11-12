@@ -1,0 +1,22 @@
+
+.dbcontainer {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.dbchart {
+	display: flex;
+	
+}
+
+/*.dbcontainer > * {
+  flex: 1 100%;
+}*/
+
+
+/*.dbcontainer {
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+}*/
