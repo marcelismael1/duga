@@ -7,7 +7,21 @@
 
 .dbchart {
 	display: flex;
-	
+
+}
+
+.alcontainer {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	padding: 10px 10px 10px 10px
+}
+
+.altable {
+	margin-bottom:  10px;
+	margin-top:   10px;
+	padding: 10px 10px 10px 10px;
+
 }
 
 /*.dbcontainer > * {
