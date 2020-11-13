@@ -28,7 +28,7 @@ def dashboard():
 # alerts endpoint
 @app.route('/alerts')
 def alerts():
-    return render_template("alerts.html")
+    return render_template("alerts.html", headings=headings, data=data)
 
 # Config endpoint
 @app.route('/configurations')
