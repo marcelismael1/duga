@@ -12,6 +12,18 @@ data = (
 
 	)
 
+configurationdata = (
+	("WindowsOS1", "200.100.2.2", "Full Scan", "On", "Full Scan", "Weekly"),
+	("WindowsOS2", "200.100.2.3", "Full Scan", "On", "Full Scan", "Daily"),
+
+	)
+
+notificationdata = (
+	("On", "1", "Test", "123"),
+	("Off", "2", "Test", "456"),
+
+	)
+
 SOFAlarms = [300,50,100,200]
 Totalseverity = [600,50,100,200]
 
@@ -33,7 +45,7 @@ def alerts():
 # Config endpoint
 @app.route('/configurations')
 def configurations():
-    return render_template("configurations.html")
+    return render_template("configurations.html" , configurationdata=configurationdata, notificationdata=notificationdata)
 
 # about endpoint
 @app.route('/about')
