@@ -8,3 +8,5 @@ allitems*
 config.ini
 *.log
 test*
+env
+__pycache__
