@@ -1,8 +1,18 @@
 from flask import Flask, render_template, url_for, redirect, request, jsonify
 import pymongo
-
+from functions import *
 import uuid
-# from models import *
+import configparser
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# Mongo
+mongodb = config['db']['mongodb']
+mongoport = int(config['db']['mongoport'])
+cve_collection = config['db']['cve_collection']
+mongo_database = config['db']['mongodatabase']
+sys_config_coll = config['db']['sys_config_coll']
 
 
 
@@ -12,8 +22,7 @@ app = Flask(__name__)
 client = pymongo.MongoClient('localhost', 27017)
 db = client.duga
 
-# # Routes
-# from alldata import routes
+
 
 # Static Data
 headings = ("System IP","DATE", "CVE NO", "SEVERITY", "AFFECTED PACKAGES", "PACKAGE NUMBER")
@@ -44,23 +53,7 @@ Totalseverity = [600,50,100,200]
 
 
 
-# def adddata():
 
-
-# 	alldata = {
-# 	"_id" : "",
-# 	"systemip" : "",
-# 	"systemname" : "",
-# 	"systemgroup" : "",
-# 	"activation" : "",
-# 	"scantype" : "",
-# 	"frequency" : "",
-# 	"scantype" : "",
-	
-
-# 	}
-
-# 	return jsonify(alldata), 200
 
 
 
@@ -80,10 +73,19 @@ def dashboard():
 def alerts():
     return render_template("alerts.html", headings=headings, data=data)
 
+def get_sys_config():
+	sys_config = read_from_mongo(sys_config_coll, {})
+	sys_config_data = []
+	for i in sys_config:
+		data = [i['systemname'],i['systemip'],i['systemgroup'],i['activation'],i['scantype'],i['frequency']]
+		sys_config_data.append(data)
+	return sys_config_data
+
 # Config endpoint
 @app.route('/configurations')
 def configurations():
-    return render_template("configurations.html" , configurationdata=configurationdata, notificationdata=notificationdata)
+	sys_config = get_sys_config()
+	return render_template("configurations.html" , configurationdata=sys_config, notificationdata=notificationdata)
     # return redirect(url_for('configurations.html') , confdata=configurationdata, notificationdata=notificationdata)
 
 # about endpoint
@@ -116,29 +118,10 @@ def addconf():
 
 
 
-# @app.route('/alldata/', methods=['GET', 'POST'])
-# def adddata():
-# 	# return adddata()
-# 	alldata = {
-# 	"_id" : "",
-# 	"systemip" : "",
-# 	"systemname" : "",
-# 	"systemgroup" : "",
-# 	"activation" : "",
-# 	"scantype" : "",
-# 	"frequency" : "",
-# 	"scantype" : "",
-	
 
-# 	}
-
-# 	return jsonify(alldata), 200
 
 @app.route('/alldata/', methods=['POST', 'GET'])
-# def adddata():
-# 	return Alldata().adddata()
 def adddata():
-
 	req = request.form
 	alldata = {
 	"_id" : uuid.uuid4().hex,

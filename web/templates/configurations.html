@@ -36,81 +36,6 @@
 
 
 
-<!-- <script>
-$(document).ready(function(){
-	$('[data-toggle="tooltip"]').tooltip();
-	var actions = $("table td:last-child").html();
-	// Append table with add row form on add new button click
-    $(".add-new").click(function(){
-		$(this).attr("disabled", "disabled");
-		var index = $("table tbody tr:last-child").index();
-        var row = '<tr>' + '<form id="myform" action="/configurations">' + 
-            '<td><input type="text" class="form-control" name="systemname" id="systemname" ></td>' +
-            '<td><input type="text" class="form-control" name="systemip" id="systemip" ></td>' +
-            '<td><input type="text" class="form-control" name="systemgroup" id="systemgroup"></td>' +
-            '<td><input type="text" class="form-control" name="activation" id="activation"></td>' +
-            '<td><input type="text" class="form-control" name="scantype" id="scantype"></td>' +
-            '<td><input type="text" class="form-control" name="frequency" id="frequency"></td>' +
-			'<td>' + actions + '</td>' +
-        '</form>' + '</tr>';
-    	$("table").append(row);		
-		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-	// Add row on add button click
-	$(document).on("click", ".add", function(){
-		var empty = false;
-		var input = $(this).parents("tr").find('input[type="text"]');
-        input.each(function(){
-			if(!$(this).val()){
-				$(this).addClass("error");
-				empty = true;
-			} else{
-                $(this).removeClass("error");
-            }
-		});
-		$(this).parents("tr").find(".error").first().focus();
-		if(!empty){
-			input.each(function(){
-				$(this).parent("td").html($(this).val());
-			});			
-			$(this).parents("tr").find(".add, .edit").toggle();
-			$(".add-new").removeAttr("disabled");
-		}		
-    });
-	// Edit row on edit button click
-	$(document).on("click", ".edit", function(){		
-        $(this).parents("tr").find("td:not(:last-child)").each(function(){
-			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-		});		
-		$(this).parents("tr").find(".add, .edit").toggle();
-		$(".add-new").attr("disabled", "disabled");
-    });
-	// Delete row on delete button click
-	$(document).on("click", ".delete", function(){
-        $(this).parents("tr").remove();
-		$(".add-new").removeAttr("disabled");
-    });
-});
-</script> -->
-
-<!-- <script type="text/javascript">
-function ValidateIPaddress(inputText)
- {
- var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
- if(systemip.value.match(ipformat))
- {
- document.form1.text1.focus();
- return true;
- }
- else
- {
- alert("You have entered an invalid IP address!");
- document.form1.text1.focus();return false;
- }
- }
-</script> -->
-
 
 <div class="container-lg">
     <div class="table-responsive">
@@ -118,9 +43,7 @@ function ValidateIPaddress(inputText)
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>System <b>Configuration</b></h2></div>
-<!--                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                    </div> -->
+
 
                 </div>
             </div>
@@ -138,12 +61,7 @@ function ValidateIPaddress(inputText)
                 </thead>
                 <tbody>
                     <tr>
-<!--                         <td>John Doe</td>
-                        <td>John Doe</td>
-                        <td>John Doe</td>
-                        <td>Administration</td>
-                        <td>(171) 555-2222</td>
-                        <td>(171) 555-2222</td> -->
+
 
                               		  	{% for row in configurationdata %}
                         		    <tr>  	
@@ -158,15 +76,7 @@ function ValidateIPaddress(inputText)
                         </td>
                         			{% endfor %}
                         		    </tr>                         
-                      <!--   <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td> -->
 
-
-
-                    	<!-- <tr> <form name="adddata" id="myform" action="/addconf" method="post"> -->
                     		<tr> <form name="adddata" id="adddata" action="{{ url_for('adddata') }}" method="post">
             <td><input type="text" class="form-control" name="systemname" id="systemname" ></td> 
             <td><input type="text" class="form-control" name="systemip" id="systemip" ></td>
@@ -202,9 +112,6 @@ function ValidateIPaddress(inputText)
 
 
 
-
-<!-- <script src="{{ url_for('static',filename='js/jquery.js') }}"></script>
-<script src="{{ url_for('static',filename='js/adddata.js') }}"></script> -->
 
 
 
