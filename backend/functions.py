@@ -6,7 +6,7 @@ from pymongo import MongoClient
 config = configparser.ConfigParser()
 #dir_path = os.path.dirname(os.path.realpath(__file__))
 #onfig.read(dir_path+'../config.ini')
-config.read('../config.ini')
+config.read('config.ini')
 
 # Mongo
 mongodb = config['db']['mongodb']
