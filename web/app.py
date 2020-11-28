@@ -34,11 +34,6 @@ data = (
 
 	)
 
-configurationdata = [
-	["WindowsOS1", "200.100.2.2", "Full Scan", "On", "Full Scan", "Weekly"],
-	["WindowsOS2", "200.100.2.3", "Full Scan", "On", "Full Scan", "Daily"],
-
-	]
 
 notificationdata = (
 	("On", "1", "Test", "123"),
@@ -73,20 +68,13 @@ def dashboard():
 def alerts():
     return render_template("alerts.html", headings=headings, data=data)
 
-def get_sys_config():
-	sys_config = read_from_mongo(sys_config_coll, {})
-	sys_config_data = []
-	for i in sys_config:
-		data = [i['systemname'],i['systemip'],i['systemgroup'],i['activation'],i['scantype'],i['frequency']]
-		sys_config_data.append(data)
-	return sys_config_data
+
 
 # Config endpoint
 @app.route('/configurations')
 def configurations():
 	sys_config = get_sys_config()
-	return render_template("configurations.html" , configurationdata=sys_config, notificationdata=notificationdata)
-    # return redirect(url_for('configurations.html') , confdata=configurationdata, notificationdata=notificationdata)
+	return render_template("configurations.html" , configurationdata=sys_config)
 
 # about endpoint
 @app.route('/about')
@@ -120,33 +108,40 @@ def addconf():
 
 
 
-@app.route('/alldata/', methods=['POST', 'GET'])
-def adddata():
-	req = request.form
-	alldata = {
-	"_id" : uuid.uuid4().hex,
-	"systemip" : request.form.get("systemip"),
-	"systemname" : request.form.get("systemname"),
-	"systemgroup" :request.form.get("systemgroup"),
-	"activation" : request.form.get("activation"),
-	"scantype" : request.form.get("scantype"),
-	"frequency" :request.form.get("frequency"),
-	"scantype" : request.form.get("scantype"),
-	
+@app.route('/sys_config_table/<action>', methods=['POST', 'GET'])
+@app.route('/sys_config_table/<action>/<ip>', methods=['GET'])
+def sys_config_table(action,ip):
 
-	}
+	if action == 'new':
+		req = request.form
+		data = {
+		"systemip" : request.form.get("systemip"),
+		"systemname" : request.form.get("systemname"),
+		"systemgroup" :request.form.get("systemgroup"),
+		"activation" : request.form.get("activation"),
+		"scantype" : request.form.get("scantype"),
+		"frequency" : request.form.get("frequency"),
+		"scantype" : request.form.get("scantype"),
+		}
+		save_to_mongo(sys_config_coll, data)
+		# return redirect(url_for("configurations"))
+	elif action == 'delete':
+		delete_from_mongo(sys_config_coll, {'systemip':ip})
+	else:
+		return None
+	return redirect(url_for("configurations"))
 
+########################################################################
+#							FUNCTIONS
+########################################################################
 
-
-
-	db.alldata.insert_one(alldata)
-	
-
-	return jsonify(req), 200
-
-
-
-
+def get_sys_config():
+	sys_config = read_from_mongo(sys_config_coll, {})
+	sys_config_data = []
+	for i in sys_config:
+		data = [i['systemname'],i['systemip'],i['systemgroup'],i['activation'],i['scantype'],i['frequency']]
+		sys_config_data.append(data)
+	return sys_config_data
 
 
 if __name__ == "__main__":

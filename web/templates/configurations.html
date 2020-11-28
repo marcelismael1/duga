@@ -56,28 +56,32 @@
                         <th>Activation</th>
                         <th>Scan Type</th>
                         <th>Frequency</th>
-                        <th>Edit/Delete</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
 
 
-                              		  	{% for row in configurationdata %}
-                        		    <tr>  	
-                        		    		{% for cell in row %}
-                        		    		<td>{{ cell }}</td>
+                                        {% for row in configurationdata %}
+                                    <tr>    
+                                            {% for cell in row %}
+                                            <td>{{ cell }}</td>
 
-                        		    		{% endfor %}
-                        		    		  <td>
+                                            {% endfor %}
+                                              <td>
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                        			{% endfor %}
-                        		    </tr>                         
+                            <!-- <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> -->
+                            <a class="delete" title="Delete" href="/sys_config_table/delete/{{ row[1] }}"><i class="material-icons">&#xE872;</i></a>
 
-                    		<tr> <form name="adddata" id="adddata" action="{{ url_for('adddata') }}" method="post">
+
+
+
+                        </td>
+                                    {% endfor %}
+                                    </tr>                         
+
+                            <tr> <form name="adddata" id="adddata" action="/sys_config_table/new" method="post">
             <td><input type="text" class="form-control" name="systemname" id="systemname" ></td> 
             <td><input type="text" class="form-control" name="systemip" id="systemip" ></td>
             <td><input type="text" class="form-control" name="systemgroup" id="systemgroup"></td>
@@ -88,7 +92,7 @@
                         <button type="submit" class="btn btn-info add-new"><i class="fa fa-plus"></i></button>
                     </div>
                     </td>
-			
+            
         </form> </tr>
 
                     </tr>
