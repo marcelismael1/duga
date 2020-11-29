@@ -1,12 +1,11 @@
-import datetime
+import os, datetime
 import time
 import configparser
 from pymongo import MongoClient
 
 config = configparser.ConfigParser()
-#dir_path = os.path.dirname(os.path.realpath(__file__))
-#onfig.read(dir_path+'../config.ini')
-config.read('config.ini')
+dir_path = os.path.dirname(os.path.realpath(__file__))
+config.read(dir_path+'/config.ini')
 
 # Mongo
 mongodb = config['db']['mongodb']

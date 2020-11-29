@@ -1,5 +1,6 @@
 beautifulsoup4==4.9.1
 click==7.1.2
+configparser==5.0.1
 cpe==1.2.1
 cvss==2.1
 Flask==1.1.2
