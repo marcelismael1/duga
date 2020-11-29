@@ -24,20 +24,31 @@ baseline_coll =     config['db']['baseline']
 alarms_collection = config['db']['alarms_collection']
 
 
+#############################        
+### System Baseline Class ###
+#############################
 class System_Baseline:
     
     def __init__(self):
         return None
     
+    # Load the baseline
     def load(self,baseline):
-        for k,v in baseline.items():
-            setattr(self,k,v)
-        
+        try:
+            baseline_keys = ['name', 'ip', 'os_release', 'addedTime', 'modifiedTime', 'packages', 'updated', 'comment', 'internalNmap', 'externalNmap']
+            if len(set(baseline_keys) - set(baseline.keys())) == 0:
+                for k,v in baseline.items():
+                    setattr(self,k,v)
+        except Exception as e:
+            print(e)
+    
+    # search for cve from the package list of the baseline
     def search_for_cve(self):
         if len(self.packages)>0:
             for package in self.packages:
                 self.check_package(package['name'], package['version'])
-                
+
+    # check if a cetain package has Vulnrabilites            
     def check_package(self, package_name, package_version):
                 
         ####################################################################################################
@@ -50,6 +61,7 @@ class System_Baseline:
         else:
             return False
 
+    # issue an alarm
     def issue_alarm(self, package_name, package_version, cve_list):
         cve_list_with_severity = {}
         for cve in cve_list:
@@ -65,8 +77,14 @@ class System_Baseline:
         }
         return save_to_mongo(alarms_collection, alarm)
 
-        
-# general Operations
+
+
+##########################        
+### general Operations ###
+##########################
+
+
+# get the severity of a certain cve
 def get_severity(cve):
     try:
         cve_details = read_from_mongo(cve_collection, {'id':cve})
