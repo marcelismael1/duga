@@ -78,25 +78,10 @@ def get_severity(cve):
 
 
 if __name__ == "__main__":
-    server_baseline = {
-    'name': 'server.test3',
-    'ip': '192.168.0.201',
-    'os_release': 'CentoS',
-    'addedTime':1605368029,
-    'modifiedTime':1605368029,
-    'packages': [
-        {'name':'package1','version':'1.5.4'},
-        {'name':'pandor_fms','version':'7.44'},
-        {'name':'package5','version':'4.5.4'},
-        
-        ],
-    'updated':False,
-    'comment':'',
-    'internalNmap':[],
-    'externalNmap':[]
-    }
-
-
-    server1 = System_Baseline()
-    server1.load(server_baseline)
-    server1.search_for_cve()
+    baseline_list =  read_from_mongo(baseline_coll, {})
+    if len(baseline_list) > 0:
+        for baseline in baseline_list:    
+            server = System_Baseline()
+            server.load(baseline)
+            server.search_for_cve()
+            del server
