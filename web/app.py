@@ -14,6 +14,7 @@ cve_collection = config['db']['cve_collection']
 mongo_database = config['db']['mongodatabase']
 sys_config_coll = config['db']['sys_config_coll']
 not_config_coll = config['db']['not_config_coll']
+alarms_coll = config['db']['alarms_coll']
 
 
 
@@ -28,7 +29,7 @@ db = client.duga
 # Static Data
 headings = ("System IP","DATE", "CVE NO", "SEVERITY", "AFFECTED PACKAGES", "PACKAGE NUMBER")
 
-data = (
+alertsdata = (
 	("210.x.x.x", "2020-Sep-27 18:20", "CVE-210.x.x.x 2020-Sep-27 18:20 2019-1010298", "Critical", "Chrome", "50.23"),
 	("210.x.x.x", "2020-Sep-27 18:20", "CVE-210.x.x.x 2020-Sep-28 18:20 2019-1010298", "Normal", "Chrome", "50.23"),
 	("210.x.x.x", "2020-Sep-27 18:20", "CVE-210.x.x.x 2020-Sep-29 18:20 2019-1010298", "Critical", "Chrome", "50.23"),
@@ -62,12 +63,12 @@ def main():
 # dashboards endpoint
 @app.route('/dashboard')
 def dashboard():
-    return render_template("dashboard.html", headings=headings, data=data, SOFAlarms=SOFAlarms, Totalseverity=Totalseverity)
+    return render_template("dashboard.html", headings=headings, data=alertsdata, SOFAlarms=SOFAlarms, Totalseverity=Totalseverity)
 
 # alerts endpoint
 @app.route('/alerts')
 def alerts():
-    return render_template("alerts.html", headings=headings, data=data)
+    return render_template("alerts.html" , data=alertsdata)
 
 
 
@@ -117,8 +118,8 @@ def sys_config_table(action,ip=None):
 
 
 @app.route('/not_config_table/<action>', methods=['POST', 'GET'])
-@app.route('/not_config_table/<action>/<ip>', methods=['GET'])
-def not_config_table(action,ip=None):
+@app.route('/not_config_table/<action>/<id>', methods=['GET'])
+def not_config_table(action,id=None):
 
 	if action == 'new':
 		req = request.form
@@ -131,7 +132,7 @@ def not_config_table(action,ip=None):
 		save_to_mongo(not_config_coll, data)
 		# return redirect(url_for("configurations"))
 	elif action == 'delete':
-		delete_from_mongo(not_config_coll, {'token_id':ip})
+		delete_from_mongo(not_config_coll, {'token_id':id})
 	else:
 		return None
 	return redirect(url_for("configurations"))
@@ -157,6 +158,16 @@ def get_not_config():
 		data = [i['nactivate'],i['channel'],i['botname'],i['token_id']]
 		not_config_data.append(data)
 	return not_config_data
+
+
+
+def get_alarms_data():
+	alerts = read_from_mongo(alarms_coll, {})
+	alertsdata = []
+	for i in alerts:
+		data = [i['ip'],i['creationDate'],i[data['cve_list'][list(data['cve_list'].value())[0]]],i[data['cve_list'][list(data['cve_list'].keys())[0]]],i['package_name'],i['package_version']]
+		alertsdata.append(data)
+	return alertsdata
 
 
 
