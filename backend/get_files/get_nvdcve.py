@@ -9,13 +9,12 @@ import datetime
 import time
 
 config = configparser.ConfigParser()
-config.read('../config.ini')
+dir_path = os.path.dirname(os.path.realpath(__file__))
+config.read(dir_path+'/../../config.ini')
 
 # URL
 url = config['nvd']['url']
 files_url = config['nvd']['files_url']
-
-dir_path = os.getcwd()
 
 # log function
 def log(log_message):
