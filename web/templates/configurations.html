@@ -113,6 +113,79 @@
 </div>  
 
 
+<!-- Notifications Table -->
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>System <b>Notifications</b></h2></div>
+
+
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Activate</th>
+                        <th>Channel ID</th>
+                        <th>Bot name</th>
+                        <th>Token ID</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+
+                                        {% for row in configurationnot %}
+                                    <tr>    
+                                            {% for cell in row %}
+                                            <td>{{ cell }}</td>
+
+                                            {% endfor %}
+                                              <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <!-- <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> -->
+                            <a class="delete" title="Delete" href="/not_config_table/delete/{{ row[1] }}"><i class="material-icons">&#xE872;</i></a>
+
+
+
+
+                        </td>
+                                    {% endfor %}
+                                    </tr>                         
+
+                            <tr> <form name="adddata" id="adddata" action="/not_config_table/new" method="post">
+            <td><input type="text" class="form-control" name="nactivate" id="nactivate" ></td> 
+            <td><input type="text" class="form-control" name="channel" id="channel" ></td>
+            <td><input type="text" class="form-control" name="botname" id="botname"></td>
+            <td><input type="text" class="form-control" name="token_id" id="token_id"></td>
+
+                               <td> <div class="col-sm-4">
+                        <button type="submit" class="btn btn-info add-new"><i class="fa fa-plus"></i></button>
+                    </div>
+                    </td>
+            
+        </form> </tr>
+
+                    </tr>
+
+
+
+
+
+
+      
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>  
+
 
 
 

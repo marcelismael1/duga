@@ -13,6 +13,7 @@ mongoport = int(config['db']['mongoport'])
 cve_collection = config['db']['cve_collection']
 mongo_database = config['db']['mongodatabase']
 sys_config_coll = config['db']['sys_config_coll']
+not_config_coll = config['db']['not_config_coll']
 
 
 
@@ -74,7 +75,8 @@ def alerts():
 @app.route('/configurations')
 def configurations():
 	sys_config = get_sys_config()
-	return render_template("configurations.html" , configurationdata=sys_config)
+	not_config = get_not_config()
+	return render_template("configurations.html" , configurationdata=sys_config, configurationnot=not_config)
 
 # about endpoint
 @app.route('/about')
@@ -86,31 +88,12 @@ def about():
 def default_route(name):
     return redirect(url_for('main'))
 
-@app.route('/addconf/', methods=["POST", "GET"])
-def addconf():
-	if request.method == 'POST':
-
-		systemname = request.form["systemname"]
-		systemip = request.form["systemip"] 
-		systemgroup = request.form["systemgroup"]
-		activation = request.form["activation"]
-		scantype = request.form["scantype"]
-		frequency = request.form["frequency"]
-		# configurationdata.extend((systemname, systemip, systemgroup, activation, scantype, frequency))
-		newconfig = [systemname, systemip, systemgroup, activation, scantype, frequency]
-		configurationdata = configurationdata + newconfig
-		print(configurationdata)
-		return redirect(url_for("configurations"))
-	else:
-		return render_template("configurations.html")
-
-
 
 
 
 @app.route('/sys_config_table/<action>', methods=['POST', 'GET'])
 @app.route('/sys_config_table/<action>/<ip>', methods=['GET'])
-def sys_config_table(action,ip):
+def sys_config_table(action,ip=None):
 
 	if action == 'new':
 		req = request.form
@@ -131,6 +114,28 @@ def sys_config_table(action,ip):
 		return None
 	return redirect(url_for("configurations"))
 
+
+
+@app.route('/not_config_table/<action>', methods=['POST', 'GET'])
+@app.route('/not_config_table/<action>/<ip>', methods=['GET'])
+def not_config_table(action,ip=None):
+
+	if action == 'new':
+		req = request.form
+		data = {
+		"nactivate" : request.form.get("nactivate"),
+		"channel" : request.form.get("channel"),
+		"botname" :request.form.get("botname"),
+		"token_id" : request.form.get("token_id"),
+		}
+		save_to_mongo(not_config_coll, data)
+		# return redirect(url_for("configurations"))
+	elif action == 'delete':
+		delete_from_mongo(not_config_coll, {'token_id':ip})
+	else:
+		return None
+	return redirect(url_for("configurations"))
+
 ########################################################################
 #							FUNCTIONS
 ########################################################################
@@ -142,6 +147,17 @@ def get_sys_config():
 		data = [i['systemname'],i['systemip'],i['systemgroup'],i['activation'],i['scantype'],i['frequency']]
 		sys_config_data.append(data)
 	return sys_config_data
+
+
+
+def get_not_config():
+	not_config = read_from_mongo(not_config_coll, {})
+	not_config_data = []
+	for i in not_config:
+		data = [i['nactivate'],i['channel'],i['botname'],i['token_id']]
+		not_config_data.append(data)
+	return not_config_data
+
 
 
 if __name__ == "__main__":
