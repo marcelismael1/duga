@@ -1,22 +1,28 @@
 import json
-import os
-import cvss
-import cpe
+import os, sys
+#import cvss
+#import cpe
 import configparser
 import datetime
 import CVE
 from pymongo import MongoClient
+
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
 from functions import *
 
 config = configparser.ConfigParser()
-dir_path = os.path.dirname(os.path.realpath(__file__))
-config.read(dir_path+'/../../config.ini')
+config.read(currentdir+'/../../config.ini')
 
 # Mongo
 mongodb = config['db']['mongodb']
 mongoport = int(config['db']['mongoport'])
 cve_collection = config['db']['cve_collection']
 mongo_database = config['db']['mongodatabase']
+
+# nvd files dir
+nvd_files_dir = f'{currentdir}/../get_files/files'
 
 def load_cve_db(file_name):
     '''
@@ -26,7 +32,7 @@ def load_cve_db(file_name):
     Example:
     load_cve_db('nvdcve-1.1-2020.json')
     '''
-    with open(f'../files/{file_name}', 'r') as fp: # load json file
+    with open(f'{nvd_files_dir}/{file_name}', 'r') as fp: # load json file
         data = json.load(fp)
 
     replaced = 0
@@ -275,8 +281,7 @@ def get_cpes_from_nvdcve(nvdcve):
     return set(cpe_list)
 
 if __name__ == "__main__":
-    dir_path = os.getcwd()
-    list_of_files = os.listdir(f'{dir_path}/../files')
+    list_of_files = os.listdir(nvd_files_dir)
     list_of_files_to_ingest = [f for f in list_of_files if f[:10] == 'nvdcve-1.1' and f[-4:] == 'json']
 
     log('NVDCVE files ingestion started')

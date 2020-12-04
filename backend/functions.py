@@ -71,7 +71,7 @@ def delete_from_mongo(collection, find = None, db_server = mongodb, port = mongo
 def log(log_message):
     now = datetime.datetime.now()
     current_time = now.strftime("%Y-%m-%d %H:%M:%S")
-    with open('log.log', 'a') as fp:
+    with open('duga_log.log', 'a') as fp:
         fp.write(current_time+"  "+log_message+'\n')
 #log("first log message")
 
