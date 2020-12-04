@@ -17,17 +17,13 @@ sys_config_coll = config['db']['sys_config_coll']
 not_config_coll = config['db']['not_config_coll']
 alarms_coll = config['db']['alarms_coll']
 
-
-
 app = Flask(__name__)
 
 # Database
 client = pymongo.MongoClient('localhost', 27017)
 db = client.duga
 
-
-
-# Static Data
+# Static Data for Dashboard
 headings = ("System IP","DATE", "CVE NO", "SEVERITY", "AFFECTED PACKAGES", "PACKAGE NUMBER")
 
 alertsdata = (
@@ -37,24 +33,8 @@ alertsdata = (
 
 	)
 
-
-notificationdata = (
-	("On", "1", "Test", "123"),
-	("Off", "2", "Test", "456"),
-
-	)
-
 SOFAlarms = [300,50,100,200]
 Totalseverity = [600,50,100,200]
-
-
-
-
-
-
-
-
-
 
 # Main route
 @app.route('/')
@@ -72,8 +52,6 @@ def alerts():
 	alertsdata = get_alarms_data()
 	return render_template("alerts.html" , data=alertsdata)
 
-
-
 # Config endpoint
 @app.route('/configurations')
 def configurations():
@@ -90,9 +68,6 @@ def about():
 @app.route('/<name>')
 def default_route(name):
     return redirect(url_for('main'))
-
-
-
 
 @app.route('/sys_config_table/<action>', methods=['POST', 'GET'])
 @app.route('/sys_config_table/<action>/<ip>', methods=['GET'])
@@ -116,8 +91,6 @@ def sys_config_table(action,ip=None):
 	else:
 		return None
 	return redirect(url_for("configurations"))
-
-
 
 @app.route('/not_config_table/<action>', methods=['POST', 'GET'])
 @app.route('/not_config_table/<action>/<id>', methods=['GET'])
@@ -151,8 +124,6 @@ def get_sys_config():
 		sys_config_data.append(data)
 	return sys_config_data
 
-
-
 def get_not_config():
 	not_config = read_from_mongo(not_config_coll, {})
 	not_config_data = []
@@ -160,8 +131,6 @@ def get_not_config():
 		data = [i['nactivate'],i['channel'],i['botname'],i['token_id']]
 		not_config_data.append(data)
 	return not_config_data
-
-
 
 def get_alarms_data():
 	alerts = read_from_mongo(alarms_coll, {})
@@ -174,8 +143,6 @@ def get_alarms_data():
 		data = [i['ip'],alarmtime,cve_list[0][0],cve_list[0][1],i['package_name'],i['package_version']]
 		alertsdata.append(data)
 	return alertsdata
-
-
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
