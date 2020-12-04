@@ -3,6 +3,7 @@ import time
 import json
 import configparser
 import datetime
+import slack
 
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
@@ -23,6 +24,12 @@ cpe_collection =    config['db']['cpe_collection']
 baseline_coll =     config['db']['baseline']
 alarms_collection = config['db']['alarms_collection']
 
+# Slack config
+slack_bot_token = 	config['slack']['token']
+to_channel = 		config['slack']['channel']
+bot_name =          config['slack']['bot_name']
+
+sc = slack.WebClient(token=slack_bot_token)
 
 #############################        
 ### System Baseline Class ###
@@ -75,6 +82,27 @@ class System_Baseline:
             'package_version': package_version,
             'cve_list': cve_list_with_severity
         }
+
+        m1 = f":warning: System _*{alarm['ip']}*_ has vulnerable package:\n*Package Name* : {alarm['package_name']}\n*Package Version* : {alarm['package_version']}\n*CVE List* :\n"
+        m2 = ''
+        count = 0
+        for k,v in alarm['cve_list'].items():
+            if v == 'LOW':
+                m2 += f'• {k} severity is {v}\n'
+            elif v == 'MEDIUM':
+                 m2 += f'• {k} severity is {v}\n'
+            elif v == 'HIGH':
+                 m2 += f'• {k} severity is {v} :exclamation:\n'
+            elif v == 'CRITICAL':
+                 m2 += f'• {k} severity is {v} :no_entry_sign:\n'
+            
+            count += 1
+            if count >= 5:
+                m2 += f'.... Others (total CVEs are {len(alarm.keys())})'
+                break
+        message = m1 + m2
+        notify(message)
+
         return save_to_mongo(alarms_collection, alarm)
 
 
@@ -82,7 +110,6 @@ class System_Baseline:
 ##########################        
 ### general Operations ###
 ##########################
-
 
 # get the severity of a certain cve
 def get_severity(cve):
@@ -94,6 +121,12 @@ def get_severity(cve):
     except Exception as e:
         print(e)
 
+def notify(message):
+    try:
+        sc.chat_postMessage(channel= to_channel,text=message, username=bot_name)
+    except Exception as e:
+        print(e)
+    return None
 
 if __name__ == "__main__":
     baseline_list =  read_from_mongo(baseline_coll, {})
