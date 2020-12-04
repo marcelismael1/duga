@@ -32,8 +32,6 @@ class TestFlask(unittest.TestCase):
             self.fail("Configurations Page.Test Failed")
 
 
-
-
     def test_web_about_running(self):
         try:
              r = requests.get("http://127.0.0.1:5000/about")
@@ -76,11 +74,16 @@ class TestFlask(unittest.TestCase):
             self.fail(" failed to post sysconfig")
     	delete_from_mongo('configurations', {"systemip": "1.1.1.1"})
 
-    
-
-
-
-
+    def test_sys_notif_form(self):
+        form_data = {"nactivate": "On","channel": "1665165","botname": "Test1","token_id": "51616161"}
+        r = requests.post("http://127.0.0.1:5000/not_config_table/new", data = form_data)
+        if r.status_code != 200:
+            self.fail(" failed to post notificationconfig")
+        r = requests.get("http://127.0.0.1:5000/configurations")
+        page_src = r.text
+        if page_src.find("<td>51616161</td>") < 0:
+            self.fail(" failed to post notificationconfig")
+        delete_from_mongo('sys_notifications', {"token_id": "51616161"}) 
 
 if __name__ == "__main__":
     unittest.main(warnings='ignore', failfast = True)

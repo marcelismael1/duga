@@ -11,11 +11,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
- 
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
-
-
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -27,24 +23,12 @@
 {% endblock title %}
 
 {% block content %}
-
-
-
-
-  
-
-
-
-
-
 <div class="container-lg">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>System <b>Configuration</b></h2></div>
-
-
                 </div>
             </div>
             <table class="table table-bordered">
@@ -61,57 +45,35 @@
                 </thead>
                 <tbody>
                     <tr>
-
-
-                                        {% for row in configurationdata %}
-                                    <tr>    
-                                            {% for cell in row %}
-                                            <td>{{ cell }}</td>
-
-                                            {% endfor %}
-                                              <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <!-- <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> -->
-                            <a class="delete" title="Delete" href="/sys_config_table/delete/{{ row[1] }}"><i class="material-icons">&#xE872;</i></a>
-
-
-
-
+                        {% for row in configurationdata %}
+                        <tr>    
+                            {% for cell in row %}
+                            <td>{{ cell }}</td>
+                            {% endfor %}
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="delete" title="Delete" href="/sys_config_table/delete/{{ row[1] }}"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                            {% endfor %}
+                        </tr>                         
+                        <tr> <form name="adddata" id="adddata" action="/sys_config_table/new" method="post">
+                            <td><input type="text" class="form-control" name="systemname" id="systemname" ></td> 
+                            <td><input type="text" class="form-control" name="systemip" id="systemip" ></td>
+                            <td><input type="text" class="form-control" name="systemgroup" id="systemgroup"></td>
+                            <td><input type="text" class="form-control" name="activation" id="activation"></td>
+                            <td><input type="text" class="form-control" name="scantype" id="scantype"></td>
+                            <td><input type="text" class="form-control" name="frequency" id="frequency"></td>
+                            <td> <div class="col-sm-4">
+                                <button type="submit" class="btn btn-info add-new"><i class="fa fa-plus"></i></button>
+                            </div>
                         </td>
-                                    {% endfor %}
-                                    </tr>                         
-
-                            <tr> <form name="adddata" id="adddata" action="/sys_config_table/new" method="post">
-            <td><input type="text" class="form-control" name="systemname" id="systemname" ></td> 
-            <td><input type="text" class="form-control" name="systemip" id="systemip" ></td>
-            <td><input type="text" class="form-control" name="systemgroup" id="systemgroup"></td>
-            <td><input type="text" class="form-control" name="activation" id="activation"></td>
-            <td><input type="text" class="form-control" name="scantype" id="scantype"></td>
-            <td><input type="text" class="form-control" name="frequency" id="frequency"></td>
-                               <td> <div class="col-sm-4">
-                        <button type="submit" class="btn btn-info add-new"><i class="fa fa-plus"></i></button>
-                    </div>
-                    </td>
-            
-        </form> </tr>
-
-                    </tr>
-
-
-
-
-
-
-      
-                </tbody>
-
-
-
-            </table>
-        </div>
+                    </form> </tr>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 </div>  
-
 
 <!-- Notifications Table -->
 <div class="container-lg">
@@ -120,8 +82,6 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>System <b>Notifications</b></h2></div>
-
-
                 </div>
             </div>
             <table class="table table-bordered">
@@ -136,63 +96,33 @@
                 </thead>
                 <tbody>
                     <tr>
-
-
-                                        {% for row in configurationnot %}
-                                    <tr>    
-                                            {% for cell in row %}
-                                            <td>{{ cell }}</td>
-
-                                            {% endfor %}
-                                              <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            <!-- <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> -->
-                            <a class="delete" title="Delete" href="/not_config_table/delete/{{ row[-1] }}"><i class="material-icons">&#xE872;</i></a>
-
-
-
-
+                        {% for row in configurationnot %}
+                        <tr>    
+                            {% for cell in row %}
+                            <td>{{ cell }}</td>
+                            {% endfor %}
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                <a class="delete" title="Delete" href="/not_config_table/delete/{{ row[-1] }}"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                            {% endfor %}
+                        </tr>                         
+                        <tr> <form name="adddata" id="adddata" action="/not_config_table/new" method="post">
+                            <td><input type="text" class="form-control" name="nactivate" id="nactivate" ></td> 
+                            <td><input type="text" class="form-control" name="channel" id="channel" ></td>
+                            <td><input type="text" class="form-control" name="botname" id="botname"></td>
+                            <td><input type="text" class="form-control" name="token_id" id="token_id"></td>
+                            <td> <div class="col-sm-4">
+                                <button type="submit" class="btn btn-info add-new"><i class="fa fa-plus"></i></button>
+                            </div>
                         </td>
-                                    {% endfor %}
-                                    </tr>                         
 
-                            <tr> <form name="adddata" id="adddata" action="/not_config_table/new" method="post">
-            <td><input type="text" class="form-control" name="nactivate" id="nactivate" ></td> 
-            <td><input type="text" class="form-control" name="channel" id="channel" ></td>
-            <td><input type="text" class="form-control" name="botname" id="botname"></td>
-            <td><input type="text" class="form-control" name="token_id" id="token_id"></td>
+                    </form> </tr>
 
-                               <td> <div class="col-sm-4">
-                        <button type="submit" class="btn btn-info add-new"><i class="fa fa-plus"></i></button>
-                    </div>
-                    </td>
-            
-        </form> </tr>
-
-                    </tr>
-
-
-
-
-
-
-      
-                </tbody>
-
-
-
-            </table>
-        </div>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 </div>  
-
-
-
-
-
-
-
-  
-
-
 {% endblock content %}
