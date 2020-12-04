@@ -7,6 +7,6 @@ nvdcpe*
 allitems*
 config.ini
 *.log
-test*
+test.py
 env
 __pycache__

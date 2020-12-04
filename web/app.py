@@ -3,6 +3,7 @@ import pymongo
 from functions import *
 import uuid
 import configparser
+import time
 
 config = configparser.ConfigParser()
 config.read('../config.ini')
@@ -68,7 +69,8 @@ def dashboard():
 # alerts endpoint
 @app.route('/alerts')
 def alerts():
-    return render_template("alerts.html" , data=alertsdata)
+	alertsdata = get_alarms_data()
+	return render_template("alerts.html" , data=alertsdata)
 
 
 
@@ -165,11 +167,15 @@ def get_alarms_data():
 	alerts = read_from_mongo(alarms_coll, {})
 	alertsdata = []
 	for i in alerts:
-		data = [i['ip'],i['creationDate'],i[data['cve_list'][list(data['cve_list'].value())[0]]],i[data['cve_list'][list(data['cve_list'].keys())[0]]],i['package_name'],i['package_version']]
+		cve_list = []
+		for k,v in i['cve_list'].items():
+			cve_list.append([k,v])
+		alarmtime = time.strftime('%m/%d/%Y %H:%M:%S',  time.gmtime(int(i['creationDate'])))
+		data = [i['ip'],alarmtime,cve_list[0][0],cve_list[0][1],i['package_name'],i['package_version']]
 		alertsdata.append(data)
 	return alertsdata
 
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
