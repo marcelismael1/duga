@@ -94,7 +94,6 @@ class TestFlask(unittest.TestCase):
     def test_delete_sys_notif_form(self):
         form_data = {"nactivate": "On","channel": "D01BEB4JD2F","botname": "Test3","token_id": "xoxp-1400029591719"}
         r = requests.post("http://127.0.0.1:5000/not_config_table/new", data = form_data)
-
         token_data = {"token_id": "xoxp-1400029591719"}
         r = requests.get("http://127.0.0.1:5000/not_config_table/delete/xoxp-1400029591719")
         if r.status_code != 200:
@@ -104,6 +103,19 @@ class TestFlask(unittest.TestCase):
         if page_src.find("<td>xoxp-1400029591719</td>") > 0:
             self.fail(" failed to delete notificationconfig")
         
+
+
+# TEST DELETING FROM SYSTEM CONFIGURATIONS
+    def test_delete_sys_config_form(self):
+        form_data = {"systemip": "192.168.1.110","systemname": "test_ip10","systemgroup": "Test10","activation": "ON","scantype": "Full","frequency": "Weekly"}
+        r = requests.post("http://127.0.0.1:5000/sys_config_table/new", data = form_data)
+        r = requests.get("http://127.0.0.1:5000/sys_config_table/delete/192.168.1.110")
+        if r.status_code != 200:
+            self.fail(" failed to post sysconfig")
+        r = requests.get("http://127.0.0.1:5000/configurations")
+        page_src = r.text
+        if page_src.find("<td>xoxp-1400029591719</td>") > 0:
+            self.fail(" failed to delete sysconfig")
 
 
 if __name__ == "__main__":
