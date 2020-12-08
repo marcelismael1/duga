@@ -63,6 +63,9 @@ class TestFlask(unittest.TestCase):
         if page_src.find("DATE") < 0:
             self.fail("Can't find DATE columns")
 
+
+
+# TEST ADDING SYSTEM CONFIGURATION
     def test_sys_config_form(self):
     	form_data = {"systemip": "1.1.1.1","systemname": "test_ip1","systemgroup": "Test1","activation": "ON","scantype": "Full","frequency": "Weekly"}
     	r = requests.post("http://127.0.0.1:5000/sys_config_table/new", data = form_data)
@@ -74,6 +77,7 @@ class TestFlask(unittest.TestCase):
             self.fail(" failed to post sysconfig")
     	delete_from_mongo('configurations', {"systemip": "1.1.1.1"})
 
+# TEST ADDING SYSTEM NOTIFICATIONS
     def test_sys_notif_form(self):
         form_data = {"nactivate": "On","channel": "1665165","botname": "Test1","token_id": "51616161"}
         r = requests.post("http://127.0.0.1:5000/not_config_table/new", data = form_data)
@@ -83,7 +87,24 @@ class TestFlask(unittest.TestCase):
         page_src = r.text
         if page_src.find("<td>51616161</td>") < 0:
             self.fail(" failed to post notificationconfig")
-        delete_from_mongo('sys_notifications', {"token_id": "51616161"}) 
+        delete_from_mongo('sys_notifications', {"token_id": "51616161"})
+
+
+# TEST DELETING FROM SYSTEM NOTIFICATIONS
+    def test_delete_sys_notif_form(self):
+        form_data = {"nactivate": "On","channel": "D01BEB4JD2F","botname": "Test3","token_id": "xoxp-1400029591719"}
+        r = requests.post("http://127.0.0.1:5000/not_config_table/new", data = form_data)
+
+        token_data = {"token_id": "xoxp-1400029591719"}
+        r = requests.get("http://127.0.0.1:5000/not_config_table/delete/xoxp-1400029591719")
+        if r.status_code != 200:
+            self.fail(" failed to post notificationconfig")
+        r = requests.get("http://127.0.0.1:5000/configurations")
+        page_src = r.text
+        if page_src.find("<td>xoxp-1400029591719</td>") > 0:
+            self.fail(" failed to delete notificationconfig")
+        
+
 
 if __name__ == "__main__":
     unittest.main(warnings='ignore', failfast = True)

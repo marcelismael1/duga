@@ -5,161 +5,135 @@
 <title>Duga - Dashboard</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
 <script src="{{ url_for('static',filename='js/Chart.min.js') }}"></script>
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> -->
 {% endblock title %}
 
 {% block content %}
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> -->
+
 <div class="dbcontainer">
 	
-		<div class="dbtable">
-			<table class="table table-hover">
-			  <thead>
-			  	
-			    <tr>
+	<div class="dbtable">
+		<table class="table table-hover">
+			<thead>
+
+				<tr>
 					{% for header in headings %}
-					<!-- <th scope="col">{{ header }}</th> -->
+
 					<th>{{ header }}</th>
 					{% endfor %}
-			    </tr>
-			  </thead>
-			  <tbody>
-			  	{% for row in data %}
-			    <tr>  	
-			    		{% for cell in row %}
-			    		<td>{{ cell }}</td>
-			    		{% endfor %}
-				{% endfor %}
-			    </tr> 
-			  </tbody>
-			</table>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in data %}
+				<tr>  	
+					{% for cell in row %}
+					<td>{{ cell }}</td>
+					{% endfor %}
+					{% endfor %}
+				</tr> 
+			</tbody>
+		</table>
+	</div>
+
+	<!-- Chart of Severity Of Found Alarms -->
+	<div class="dbchart">
+
+		<div class="dbbarchart"><canvas id="Monthlyalarm" width="800" height="300"></canvas>
 		</div>
 
-		<!-- Chart of Severity Of Found Alarms -->
-		<div class="dbchart">
+		<div class="rdbchart">
+			<canvas id="SOFAlarms" width="300" height="300"></canvas>
+		</div>
 
-			<div class="dbbarchart"><canvas id="Monthlyalarm" width="800" height="300"></canvas>
-			</div>
+		<!-- Chart of Total Severity -->
+		<div class="ldbchart"><canvas id="Totalseverity" width="300" height="300"></canvas>
+		</div>
+	</div> 
 
-			<div class="rdbchart">
-				<canvas id="SOFAlarms" width="300" height="300"></canvas>
-			</div>
-
-			<!-- Chart of Total Severity -->
-			<div class="ldbchart"><canvas id="Totalseverity" width="300" height="300"></canvas>
-			</div>
-
-			
-
-			<!-- <div class="ldbchart"><canvas id="Totalseverity" class="chartjs" width="1500" height="481" style="display: block; height: 385px; width: 770px;"></canvas></div>
-
-			</div>
- -->
-		</div> 
-
-		<script>
-			// let ctx = document.getElementById('myChart').getContext('2d');
+	<script>
 			new Chart(document.getElementById("SOFAlarms"),
-				{
-					"type":"doughnut",
-					"data":{
-						"labels":["Low","Meduim","High","Critical"],
-						"datasets":[{
-							"label":"My First Dataset",
-							"data": {{ SOFAlarms }} ,
+			{
+				"type":"doughnut",
+				"data":{
+					"labels":["Low","Meduim","High","Critical"],
+					"datasets":[{
+						"label":"My First Dataset",
+						"data": {{ SOFAlarms }} ,
 								// [300,
 								// 50,
 								// 100,
 								// 200],
-							"backgroundColor":[
+								"backgroundColor":[
 								"rgb(33, 213, 155)",
 								"rgb(0, 88, 255)",
 								"rgb(255, 199, 0)",
 								"rgb(249, 0, 0)",
 								]
-				}
-				]
-			}
-		});
+							}
+							]
+						}
+					});
 
-		</script>
+				</script>
 
 				<script>
-			// let ctx = document.getElementById('myChart').getContext('2d');
-			new Chart(document.getElementById("Totalseverity"),
-				{
-					"type":"doughnut",
-					"data":{
-						"labels":["Low","Meduim","High","Critical"],
-						"datasets":[{
-							"label":"My First Dataset",
-							"data": {{ Totalseverity }} ,
+					new Chart(document.getElementById("Totalseverity"),
+					{
+						"type":"doughnut",
+						"data":{
+							"labels":["Low","Meduim","High","Critical"],
+							"datasets":[{
+								"label":"My First Dataset",
+								"data": {{ Totalseverity }} ,
 								// [300,
 								// 50,
 								// 100,
 								// 200],
-							"backgroundColor":[
+								"backgroundColor":[
 								"rgb(33, 213, 155)",
 								"rgb(0, 88, 255)",
 								"rgb(255, 199, 0)",
 								"rgb(249, 0, 0)",
 								]
-				}
-				]
-			}
-		});
+							}
+							]
+						}
+					});
+				</script>
 
-		</script>
+				<script>
+					var monthlyData = {
+						labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] ,
+						datasets: [{
+							label: "Low",
+							barThickness: 10,
+							backgroundColor: "rgb(33, 213, 155)",
+							data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+						}, {
+							label: "Critical",
+							barThickness: 12,
+							backgroundColor: "rgb(249, 0, 0)",
+							data: [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+						}]
+					};
 
-		<script>
-			var monthlyData = {
-			   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] ,
-			   datasets: [{
-			      label: "Low",
-			      barThickness: 10,
-			      backgroundColor: "rgb(33, 213, 155)",
-			      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-			   }, {
-			      label: "Critical",
-			      barThickness: 12,
-			      backgroundColor: "rgb(249, 0, 0)",
-			      data: [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-			   }]
-			};
+					var malarm = document.getElementById('Monthlyalarm');
+					var myBarChart = new Chart(malarm, {
+						type: "bar",
+						data: monthlyData,
+						options: {
+							scales: {
+								yAxes: [{
+									display: true,
 
-			var malarm = document.getElementById('Monthlyalarm');
-			var myBarChart = new Chart(malarm, {
-			   type: "bar",
-			   data: monthlyData,
-			   options: {
-			      scales: {
-			         yAxes: [{
-			            display: true,
+									ticks: {
+										min: 0,
+										max: 50
+									}
+								}]
+							}
+						}
+					});
+				</script>
 
-			            ticks: {
-			               min: 0,
-			               max: 50
-			            }
-			         }]
-			      }
-			   }
-			});
-		</script>
-
-<!-- 		<script>
-			
-			new Chart(document.getElementById("Totalseverity"),{"type":"doughnut","data":{"labels":["Red","Blue","Yellow"],"datasets":[{"label":"My First Dataset","data":[300,50,100],"backgroundColor":["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)"]}]}});
-
-		</script> -->
-
-
-
-
-
-
-
-
-	
-
-</div>
-{% endblock content %}
+			</div>
+			{% endblock content %}
