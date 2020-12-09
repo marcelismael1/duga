@@ -10,7 +10,5 @@ config.ini
 test.py
 env
 __pycache__
-.idea/duga.iml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/misc.xml
-.idea/modules.xml
+.idea
+

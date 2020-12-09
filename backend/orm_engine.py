@@ -1,11 +1,12 @@
 from mongoengine import *
-import datetime
+import datetime, os
 import configparser
-
+from bson.objectid import ObjectId
 
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+dir_path = os.path.dirname(os.path.realpath(__file__))
+config.read(dir_path+'/../config.ini')
 
 # Mongo
 mongodb = config['db']['mongodb']
@@ -22,6 +23,7 @@ connect(
 #Creating a collection and document schema
 
 class Cve(Document):
+    _id = ObjectIdField(default=ObjectId)
     id = StringField(required=True, unique=True)
     url = StringField()
     cvssV3 = DictField()
@@ -73,4 +75,5 @@ class Sys_conf(Document):
     frequency = StringField()
 
 
-#Saving a document to the database
+#a = Baseline.objects.first()
+#print(a.packages)
