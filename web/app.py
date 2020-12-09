@@ -6,7 +6,8 @@ import configparser
 import time
 
 config = configparser.ConfigParser()
-config.read('../config.ini')
+dir_path = os.path.dirname(os.path.realpath(__file__))
+config.read(dir_path+'/../config.ini')
 
 # Mongo
 mongodb = config['db']['mongodb']
@@ -15,7 +16,7 @@ cve_collection = config['db']['cve_collection']
 mongo_database = config['db']['mongodatabase']
 sys_config_coll = config['db']['sys_config_coll']
 not_config_coll = config['db']['not_config_coll']
-alarms_coll = config['db']['alarms_coll']
+alarms_coll = config['db']['alarms_collection']
 
 app = Flask(__name__)
 
