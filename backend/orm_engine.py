@@ -75,20 +75,15 @@ class Sys_conf(Document):
     frequency = StringField()
 
 
-#a = Baseline.objects.first()
-#print(a.packages)
 
-<<<<<<< HEAD
-'''uk_users = Sys_conf.objects(systemip = "192.168.0.7")
-=======
-uk_users = Sys_conf.objects(systemip = "192.168.0.7")
->>>>>>> 8bc2d5d796b6469646569f63d6405a0b11bd6144
-print(uk_users[0].systemname)
+# Save 
 
+#config = Notif_conf(nactivate = req.get("nactivate"), channel= req.get("channel"), botname = req.get("botname") , token_id= req.get("token_id")).save()
 
-for i in Sys_conf.objects:
-<<<<<<< HEAD
-    print(i.systemname)'''
-=======
-    print(i.systemname)
->>>>>>> 8bc2d5d796b6469646569f63d6405a0b11bd6144
+# read data
+# all data
+#sys_config = Sys_conf.objects
+
+# query search
+#sys_config = Sys_conf.objects(id = 'XXXX')
+#sys_config[0].systemip
