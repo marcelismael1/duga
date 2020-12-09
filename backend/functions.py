@@ -82,3 +82,5 @@ def now_formatted():
     '''
     now = datetime.datetime.now()
     return now.strftime("%m/%d/%Y, %H:%M:%S")
+
+print(read_from_mongo('cpe', {"cpe_value" : "cpe:2.3:h:intel:nuc_kit_nuc7i5bnh:-:*:*:*:*:*:*:*"}))
