@@ -3,7 +3,14 @@ import pymongo
 from functions import *
 import uuid
 import configparser
-import time
+import time, os, sys
+
+
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
+
+from backend.orm_engine import *
 
 config = configparser.ConfigParser()
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -83,12 +90,12 @@ def sys_config_table(action,ip=None):
 		"activation" : request.form.get("activation"),
 		"scantype" : request.form.get("scantype"),
 		"frequency" : request.form.get("frequency"),
-		"scantype" : request.form.get("scantype"),
 		}
-		save_to_mongo(sys_config_coll, data)
+		config = Sys_conf(systemip = req.get("systemip"), systemname= req.get("systemname"), systemgroup = req.get("systemgroup") , activation= req.get("activation"), scantype= req.get("scantype"), frequency= req.get("frequency")).save()
 		# return redirect(url_for("configurations"))
 	elif action == 'delete':
-		delete_from_mongo(sys_config_coll, {'systemip':ip})
+		obj = Sys_conf.objects(systemip = ip)
+		obj.delete()
 	else:
 		return None
 	return redirect(url_for("configurations"))
@@ -99,16 +106,10 @@ def not_config_table(action,id=None):
 
 	if action == 'new':
 		req = request.form
-		data = {
-		"nactivate" : request.form.get("nactivate"),
-		"channel" : request.form.get("channel"),
-		"botname" :request.form.get("botname"),
-		"token_id" : request.form.get("token_id"),
-		}
-		save_to_mongo(not_config_coll, data)
-		# return redirect(url_for("configurations"))
+		config = Notif_conf(nactivate = req.get("nactivate"), channel= req.get("channel"), botname = req.get("botname") , token_id= req.get("token_id")).save()
 	elif action == 'delete':
-		delete_from_mongo(not_config_coll, {'token_id':id})
+		obj = Notif_conf.objects(token_id = id)
+		obj.delete()
 	else:
 		return None
 	return redirect(url_for("configurations"))
@@ -118,30 +119,30 @@ def not_config_table(action,id=None):
 ########################################################################
 
 def get_sys_config():
-	sys_config = read_from_mongo(sys_config_coll, {})
+	sys_config = Sys_conf.objects
 	sys_config_data = []
 	for i in sys_config:
-		data = [i['systemname'],i['systemip'],i['systemgroup'],i['activation'],i['scantype'],i['frequency']]
+		data = [i.systemname,i.systemip,i.systemgroup,i.activation,i.scantype,i.frequency]
 		sys_config_data.append(data)
 	return sys_config_data
 
 def get_not_config():
-	not_config = read_from_mongo(not_config_coll, {})
+	not_config = Notif_conf.objects
 	not_config_data = []
 	for i in not_config:
-		data = [i['nactivate'],i['channel'],i['botname'],i['token_id']]
+		data = [i.nactivate,i.channel,i.botname,i.token_id]
 		not_config_data.append(data)
 	return not_config_data
 
 def get_alarms_data():
-	alerts = read_from_mongo(alarms_coll, {})
+	alerts = Alarms.objects
 	alertsdata = []
 	for i in alerts:
 		cve_list = []
-		for k,v in i['cve_list'].items():
+		for k,v in i.cve_list.items():
 			cve_list.append([k,v])
 		alarmtime = time.strftime('%m/%d/%Y %H:%M:%S',  time.gmtime(int(i['creationDate'])))
-		data = [i['ip'],alarmtime,cve_list[0][0],cve_list[0][1],i['package_name'],i['package_version']]
+		data = [i.ip,alarmtime,cve_list[0][0],cve_list[0][1],i.package_name,i.package_version]
 		alertsdata.append(data)
 	return alertsdata
 
