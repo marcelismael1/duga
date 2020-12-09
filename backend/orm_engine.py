@@ -50,7 +50,7 @@ class Alarms(Document):
 
 class Baseline(Document):
     name = StringField()
-    ip = StringField()
+    ip = StringField(required=True, unique=True)
     os_release = StringField()
     addedTime = IntField()
     modifiedTime = IntField()
@@ -64,10 +64,10 @@ class Notif_conf(Document):
     nactivate = StringField()
     channel = StringField()
     botname = StringField()
-    token_id = StringField()
+    token_id = StringField(required=True, unique=True)
 
 class Sys_conf(Document):
-    systemip = StringField()
+    systemip = StringField(required=True, unique=True)
     systemname = StringField()
     systemgroup = StringField()
     activation = StringField()
@@ -77,3 +77,10 @@ class Sys_conf(Document):
 
 #a = Baseline.objects.first()
 #print(a.packages)
+
+uk_users = Sys_conf.objects(systemip = "192.168.0.7")
+print(uk_users[0].systemname)
+
+
+for i in Sys_conf.objects:
+    print(i.systemname)
