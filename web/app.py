@@ -31,19 +31,6 @@ app = Flask(__name__)
 client = pymongo.MongoClient('localhost', 27017)
 db = client.duga
 
-# Static Data for Dashboard
-headings = ("System IP","DATE", "CVE NO", "SEVERITY", "AFFECTED PACKAGES", "PACKAGE NUMBER")
-
-alertsdata = (
-	("210.x.x.x", "2020-Sep-27 18:20", "CVE-210.x.x.x 2020-Sep-27 18:20 2019-1010298", "Critical", "Chrome", "50.23"),
-	("210.x.x.x", "2020-Sep-27 18:20", "CVE-210.x.x.x 2020-Sep-28 18:20 2019-1010298", "Normal", "Chrome", "50.23"),
-	("210.x.x.x", "2020-Sep-27 18:20", "CVE-210.x.x.x 2020-Sep-29 18:20 2019-1010298", "Critical", "Chrome", "50.23"),
-
-	)
-
-SOFAlarms = [300,50,100,200]
-Totalseverity = [600,50,100,200]
-
 # Main route
 @app.route('/')
 def main():
@@ -52,7 +39,9 @@ def main():
 # dashboards endpoint
 @app.route('/dashboard')
 def dashboard():
-    return render_template("dashboard.html", headings=headings, data=alertsdata, SOFAlarms=SOFAlarms, Totalseverity=Totalseverity)
+	alarms_count, unresolved_alarms_count = get_alarms_summary()
+	systems_count = get_number_of_systems()
+	return render_template("dashboard.html", alarms_count= alarms_count, unresolved_alarms_count=unresolved_alarms_count, systems_count=systems_count)
 
 # alerts endpoint
 @app.route('/alerts')
@@ -145,6 +134,21 @@ def get_alarms_data():
 		data = [i.ip,alarmtime,cve_list[0][0],cve_list[0][1],i.package_name,i.package_version]
 		alertsdata.append(data)
 	return alertsdata
+
+
+# dashboard functions
+def get_alarms_summary():
+		alerts = Alarms.objects
+		unresolved_count = 0
+
+		for a in alerts:
+    			if a.resolved == False:
+    					unresolved_count += 1
+		return len(alerts), unresolved_count
+
+def get_number_of_systems():
+		sys_config = Sys_conf.objects
+		return len(sys_config)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")

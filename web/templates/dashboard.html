@@ -9,131 +9,57 @@
 
 {% block content %}
 
-<div class="dbcontainer">
-	
-	<div class="dbtable">
-		<table class="table table-hover">
-			<thead>
 
-				<tr>
-					{% for header in headings %}
-
-					<th>{{ header }}</th>
-					{% endfor %}
-				</tr>
-			</thead>
-			<tbody>
-				{% for row in data %}
-				<tr>  	
-					{% for cell in row %}
-					<td>{{ cell }}</td>
-					{% endfor %}
-					{% endfor %}
-				</tr> 
-			</tbody>
-		</table>
-	</div>
-
-	<!-- Chart of Severity Of Found Alarms -->
-	<div class="dbchart">
-
-		<div class="dbbarchart"><canvas id="Monthlyalarm" width="800" height="300"></canvas>
-		</div>
-
-		<div class="rdbchart">
-			<canvas id="SOFAlarms" width="300" height="300"></canvas>
-		</div>
-
-		<!-- Chart of Total Severity -->
-		<div class="ldbchart"><canvas id="Totalseverity" width="300" height="300"></canvas>
-		</div>
-	</div> 
-
-	<script>
-			new Chart(document.getElementById("SOFAlarms"),
-			{
-				"type":"doughnut",
-				"data":{
-					"labels":["Low","Meduim","High","Critical"],
-					"datasets":[{
-						"label":"My First Dataset",
-						"data": {{ SOFAlarms }} ,
-								// [300,
-								// 50,
-								// 100,
-								// 200],
-								"backgroundColor":[
-								"rgb(33, 213, 155)",
-								"rgb(0, 88, 255)",
-								"rgb(255, 199, 0)",
-								"rgb(249, 0, 0)",
-								]
-							}
-							]
-						}
-					});
-
-				</script>
-
-				<script>
-					new Chart(document.getElementById("Totalseverity"),
-					{
-						"type":"doughnut",
-						"data":{
-							"labels":["Low","Meduim","High","Critical"],
-							"datasets":[{
-								"label":"My First Dataset",
-								"data": {{ Totalseverity }} ,
-								// [300,
-								// 50,
-								// 100,
-								// 200],
-								"backgroundColor":[
-								"rgb(33, 213, 155)",
-								"rgb(0, 88, 255)",
-								"rgb(255, 199, 0)",
-								"rgb(249, 0, 0)",
-								]
-							}
-							]
-						}
-					});
-				</script>
-
-				<script>
-					var monthlyData = {
-						labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] ,
-						datasets: [{
-							label: "Low",
-							barThickness: 10,
-							backgroundColor: "rgb(33, 213, 155)",
-							data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-						}, {
-							label: "Critical",
-							barThickness: 12,
-							backgroundColor: "rgb(249, 0, 0)",
-							data: [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-						}]
-					};
-
-					var malarm = document.getElementById('Monthlyalarm');
-					var myBarChart = new Chart(malarm, {
-						type: "bar",
-						data: monthlyData,
-						options: {
-							scales: {
-								yAxes: [{
-									display: true,
-
-									ticks: {
-										min: 0,
-										max: 50
-									}
-								}]
-							}
-						}
-					});
-				</script>
-
+<div class = "wrapper">
+	<section class="statistic statistic2">
+		<div class="row center">
+			<div class="col-md-4 col-lg-3">
+				<div class="statistic__item statistic__item--blue">
+					<h2 class="number">{{ alarms_count }}</h2>
+					<span class="desc">Number of all alarms</span>
+				</div>
 			</div>
+			<div class="col-md-4 col-lg-3">
+				<div class="statistic__item statistic__item--grey">
+					<h2 class="number">{{ unresolved_alarms_count }}</h2>
+					<span class="desc">Number of unresolved alarms</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-3">
+				<div class="statistic__item statistic__item--orange">
+					<h2 class="number">{{ systems_count }}</h2>
+					<span class="desc">Number of Systems</span>
+				</div>
+			</div>
+		</div>
+	</section>
+<div>
+
+	<section class="section__content">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="au-card m-b-20">
+					<div class="au-card-inner">
+						<h3 class="title-2 m-b-10">Number of anomalies</h3>
+						<canvas id="anomalies-chart"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card m-b-20">
+					<div class="au-card-inner">
+						<h3 class="title-2 m-b-10">Anomaly Types (Last 24h)</h3>
+						<canvas id="anomalytypes-chart"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="au-card m-b-20">
+					<div class="au-card-inner">
+						<h3 class="title-2 m-b-10">Number of logins</h3>
+						<canvas id="login-chart"></canvas>
+					</div>
+				</div>
+			</div>
+	</section>
 			{% endblock content %}
