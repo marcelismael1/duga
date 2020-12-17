@@ -4,6 +4,8 @@ from functions import *
 import uuid
 import configparser
 import time, os, sys
+from collections import Counter
+
 
 
 currentdir = os.path.dirname(os.path.realpath(__file__))
@@ -103,10 +105,57 @@ def not_config_table(action,id=None):
 		return None
 	return redirect(url_for("configurations"))
 
-########################################################################
-#							FUNCTIONS
-########################################################################
 
+#########################################################################
+#							Charts										#
+#########################################################################
+@app.route('/charts/<action>', methods=['GET'])
+def charts(action):
+
+    if action == 'get_cve_types_chart':
+        get_cve_types_data = get_cve_severity()
+        return get_cve_types_data
+
+
+
+
+#########################################################################
+#							FUNCTIONS									#
+#########################################################################
+
+# dashboard functions
+def get_alarms_summary():
+		alerts = Alarms.objects
+		unresolved_count = 0
+
+		for a in alerts:
+    			if a.resolved == False:
+    					unresolved_count += 1
+		return len(alerts), unresolved_count
+
+def get_number_of_systems():
+		sys_config = Sys_conf.objects
+		return len(sys_config)
+
+def get_crit_severity(severity_list):
+            severity = ["CRITICAL", "HIGH", "MEDIUEM", "LOW"]
+            s = [ i  for i in severity if i in severity_list ]
+            if len(s) > 0:
+                return s[0]
+
+def get_cve_severity():
+		alarms = Alarms.objects.only("cve_list")
+		alarms = [alarm.cve_list for alarm in alarms]
+		alarms = [get_crit_severity(list(alarm.values())) for alarm in alarms]
+		alarms = [alarm for alarm in alarms if alarm != None]
+		data = {
+        'labels' : list(Counter(alarms).keys()),
+        'values' : list(Counter(alarms).values())
+        }
+		return data
+
+
+###-------------------------------------––-----------###
 def get_sys_config():
 	sys_config = Sys_conf.objects
 	sys_config_data = []
@@ -135,20 +184,6 @@ def get_alarms_data():
 		alertsdata.append(data)
 	return alertsdata
 
-
-# dashboard functions
-def get_alarms_summary():
-		alerts = Alarms.objects
-		unresolved_count = 0
-
-		for a in alerts:
-    			if a.resolved == False:
-    					unresolved_count += 1
-		return len(alerts), unresolved_count
-
-def get_number_of_systems():
-		sys_config = Sys_conf.objects
-		return len(sys_config)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")

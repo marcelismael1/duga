@@ -4,15 +4,13 @@
 {% block title %}
 <title>Duga - Dashboard</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
-<script src="{{ url_for('static',filename='js/Chart.min.js') }}"></script>
 {% endblock title %}
 
 {% block content %}
 
-
 <div class = "wrapper">
 	<section class="statistic statistic2">
-		<div class="row center">
+		<div class="row d-flex justify-content-center">
 			<div class="col-md-4 col-lg-3">
 				<div class="statistic__item statistic__item--blue">
 					<h2 class="number">{{ alarms_count }}</h2>
@@ -40,26 +38,32 @@
 			<div class="col-lg-6">
 				<div class="au-card m-b-20">
 					<div class="au-card-inner">
-						<h3 class="title-2 m-b-10">Number of anomalies</h3>
-						<canvas id="anomalies-chart"></canvas>
+						<h3 class="title-2 m-b-10">chart1</h3>
+						<canvas id="chart1"></canvas>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="au-card m-b-20">
 					<div class="au-card-inner">
-						<h3 class="title-2 m-b-10">Anomaly Types (Last 24h)</h3>
-						<canvas id="anomalytypes-chart"></canvas>
+						<h3 class="title-2 m-b-10">Severity Types</h3>
+						<canvas id="severitytypes-chart"></canvas>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="au-card m-b-20">
 					<div class="au-card-inner">
-						<h3 class="title-2 m-b-10">Number of logins</h3>
-						<canvas id="login-chart"></canvas>
+						<h3 class="title-2 m-b-10">chart2</h3>
+						<canvas id="chart2"></canvas>
 					</div>
 				</div>
 			</div>
 	</section>
-			{% endblock content %}
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="{{ url_for('static',filename='js/Chart.min.js') }}"></script>
+	<script src="{{url_for('static', filename='js/dashboard.js') }}"></script>
+
+{% endblock content %}
