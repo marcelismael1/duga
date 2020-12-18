@@ -59,7 +59,7 @@ class System_Baseline:
     def check_package(self, package_name, package_version):
                 
         ####################################################################################################
-        cpe = f"cpe:2.3:a:pandorafms:{package_name}:{package_version}:*:*:*:*:*:*:*"
+        cpe = f"cpe:2.3:a:mariadb:{package_name}:*:*:*:*:*:*:*:*"
         ####################################################################################################
         cpe_details = read_from_mongo(cpe_collection, {'cpe_value':cpe})
         if len(cpe_details) > 0:
@@ -129,10 +129,10 @@ def notify(message):
     return None
 
 if __name__ == "__main__":
-    baseline_list =  read_from_mongo(baseline_coll, {})
-    if len(baseline_list) > 0:
-        for baseline in baseline_list:    
-            server = System_Baseline()
-            server.load(baseline)
-            server.search_for_cve()
-            del server
+        baseline_list =  read_from_mongo(baseline_coll, {})
+        if len(baseline_list) > 0:
+            for baseline in baseline_list:    
+                server = System_Baseline()
+                server.load(baseline)
+                server.search_for_cve()
+                del server

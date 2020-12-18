@@ -97,47 +97,36 @@ if (ctx) {
                 {
                     label: "Critical",
                     data: [],
-                    backgroundColor: ['#FF2D00'],
-                    barThickness: 10,
+                    backgroundColor: ['#FF2D00','#FF2D00','#FF2D00','#FF2D00'],
+                    barThickness: 20,
                 },
                 {
                     label: "High",
                     data: [],
-                    backgroundColor: ['#FE9600'],
-                    barThickness: 10,
+                    backgroundColor: ['#FE9600','#FE9600','#FE9600','#FE9600'],
+                    barThickness: 20,
                 },
                 {
                     label: "Medium",
                     data: [],
-                    backgroundColor: ['#FEEB00'],
-                    barThickness: 10,
+                    backgroundColor: ['#FEEB00','#FEEB00','#FEEB00','#FEEB00'],
+                    barThickness: 20,
                 },
                 {
                     label: "Low",
                     data: [],
-                    backgroundColor: ['#00FE2E'],
-                    barThickness: 10,
+                    backgroundColor: ['#00FE2E','#00FE2E','#00FE2E','#00FE2E'],
+                    barThickness: 20,
                 },
             ]
         },
         options: {
-            legend: {
-                position: 'top'
-            },
             scales: {
-                xAxes: [{
-                    ticks: {
-                        autoSkip: false
-                    },
-                    stacked: true
-                }],
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+               yAxes: [{
+                  display: true,
+               }]
             }
-        }
+         }
 
     });
 }

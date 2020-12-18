@@ -12,7 +12,6 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 from functions import *
-from mongodb_engine.py import *
 
 config = configparser.ConfigParser()
 config.read(currentdir+'/../../config.ini')

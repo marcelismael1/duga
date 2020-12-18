@@ -144,7 +144,7 @@ def get_number_of_systems():
 		return len(sys_config)
 
 def get_crit_severity(severity_list):
-            severity = ["CRITICAL", "HIGH", "MEDIUEM", "LOW"]
+            severity = ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
             s = [ i  for i in severity if i in severity_list ]
             if len(s) > 0:
                 return s[0]
@@ -237,7 +237,7 @@ def get_alarms_data():
 		for k,v in i.cve_list.items():
 			cve_list.append([k,v])
 		alarmtime = time.strftime('%m/%d/%Y %H:%M:%S',  time.gmtime(int(i['creationDate'])))
-		data = [i.ip,alarmtime,cve_list[0][0],cve_list[0][1],i.package_name,i.package_version]
+		data = [i.ip,alarmtime,cve_list[0][0],get_crit_severity(list(i.cve_list.values())),i.package_name,i.package_version]
 		alertsdata.append(data)
 	return alertsdata
 

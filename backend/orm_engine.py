@@ -75,15 +75,3 @@ class Sys_conf(Document):
     frequency = StringField()
 
 
-
-# Save 
-
-#config = Notif_conf(nactivate = req.get("nactivate"), channel= req.get("channel"), botname = req.get("botname") , token_id= req.get("token_id")).save()
-
-# read data
-# all data
-#sys_config = Sys_conf.objects
-
-# query search
-#sys_config = Sys_conf.objects(id = 'XXXX')
-#sys_config[0].systemip
