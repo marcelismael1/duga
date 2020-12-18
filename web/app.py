@@ -4,6 +4,7 @@ from functions import *
 import uuid
 import configparser
 import time, os, sys
+from datetime import datetime
 from collections import Counter
 
 
@@ -112,12 +113,14 @@ def not_config_table(action,id=None):
 @app.route('/charts/<action>', methods=['GET'])
 def charts(action):
 
-    if action == 'get_cve_types_chart':
-        get_cve_types_data = get_cve_severity()
-        return get_cve_types_data
+	if action == 'get_cve_types_chart':
+			get_cve_types_data = get_cve_severity()
+			return get_cve_types_data
 
-
-
+	elif action == "last_month_alarms_chart":
+			last_month_alarms = get_last_month_alarms()
+			return last_month_alarms
+    		
 
 #########################################################################
 #							FUNCTIONS									#
@@ -154,7 +157,23 @@ def get_cve_severity():
         }
 		return data
 
-
+def get_last_month_alarms():
+		t = time.time()
+		labels = []
+		for i in range(30):
+				labels.append(ep_to_day(t))
+				t -= (60*60*24)
+		dates = Alarms.objects.only("creationDate")
+		dates = [ep_to_day(date.creationDate) for date in dates]
+		values = [0]*len(labels)
+		for date in dates:
+        		if date in labels:
+        				values[labels.index(date)] += 1
+		data = {
+        'labels' : labels,
+        'values' : values
+        }
+		return data
 ###-------------------------------------––-----------###
 def get_sys_config():
 	sys_config = Sys_conf.objects
@@ -183,6 +202,11 @@ def get_alarms_data():
 		data = [i.ip,alarmtime,cve_list[0][0],cve_list[0][1],i.package_name,i.package_version]
 		alertsdata.append(data)
 	return alertsdata
+
+def ep_to_day(ep):
+    day = time.strftime('%d', time.localtime(ep))
+    month = time.strftime('%m', time.localtime(ep))
+    return day+'-'+month
 
 
 if __name__ == "__main__":

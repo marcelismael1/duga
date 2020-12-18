@@ -1,6 +1,6 @@
 Chart.defaults.global.responsive = true;
 
-//dashboard/"cve Types"
+//charts/get_cve_types_chart
 var ctx = document.getElementById("severitytypes-chart");
 if (ctx) {
     ctx.height = 120;
@@ -25,14 +25,6 @@ if (ctx) {
         }
 
     });
-    ctx.onclick = function (e) {
-        var slice = myChart_anomalytypes.getElementAtEvent(e);
-        if (!slice.length) return; // return if not clicked on column
-        var clickedElementindex = slice[0]["_index"];
-        var anomaly = myChart_anomalytypes.data.labels[clickedElementindex];
-        location.href = "/anomalies/createdAt:[NOW-1DAY TO NOW] AND anomalyType:" + anomaly;
-
-    }
 }
 var getData_severitytypes = function () {
     
@@ -41,7 +33,6 @@ var getData_severitytypes = function () {
         dataType: 'JSON',
         url: '/charts/get_cve_types_chart',
         success: function (response) {
-            console.log(response.values)
             myChart_severitytypes.data.datasets[0].data = response.values;
             myChart_severitytypes.data.labels = response.labels;
             myChart_severitytypes.update();
@@ -49,3 +40,45 @@ var getData_severitytypes = function () {
     });
 }
 getData_severitytypes();
+
+
+//charts/last_month_alarms_chart
+var ctx = document.getElementById("numberofalarms_chart");
+if (ctx) {
+    ctx.height = 120;
+    var myChart_numberofalarms = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            defaultFontFamily: '"NeuePlakText-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif',
+            datasets: [
+                {
+                    label: "Vulnerabilities found last 30 days",
+                    data: [],
+                    backgroundColor: ['#99DADF'],
+                    hoverBackgroundColor: "#969696"
+                }
+            ]
+        },
+        options: {
+            legend: {
+                position: 'top'
+            },
+        }
+
+    });
+}
+var getData_numberofalarms = function () {
+    
+    $.ajax({
+        type: 'GET',
+        dataType: 'JSON',
+        url: '/charts/last_month_alarms_chart',
+        success: function (response) {
+            myChart_numberofalarms.data.datasets[0].data = response.values;
+            myChart_numberofalarms.data.labels = response.labels;
+            myChart_numberofalarms.update();
+        }
+    });
+}
+getData_numberofalarms();
