@@ -82,3 +82,79 @@ var getData_numberofalarms = function () {
     });
 }
 getData_numberofalarms();
+
+//charts/unresolved_alarms
+
+var ctx = document.getElementById("unresolvedalarms_chart");
+if (ctx) {
+    ctx.height = 120;
+    var myChart_unresolvedalarmss = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            defaultFontFamily: '"NeuePlakText-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif',
+            datasets: [
+                {
+                    label: "Critical",
+                    data: [],
+                    backgroundColor: ['#FF2D00'],
+                    barThickness: 10,
+                },
+                {
+                    label: "High",
+                    data: [],
+                    backgroundColor: ['#FE9600'],
+                    barThickness: 10,
+                },
+                {
+                    label: "Medium",
+                    data: [],
+                    backgroundColor: ['#FEEB00'],
+                    barThickness: 10,
+                },
+                {
+                    label: "Low",
+                    data: [],
+                    backgroundColor: ['#00FE2E'],
+                    barThickness: 10,
+                },
+            ]
+        },
+        options: {
+            legend: {
+                position: 'top'
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        autoSkip: false
+                    },
+                    stacked: true
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+
+    });
+}
+var getData_unresolvedalarms = function () {
+    
+    $.ajax({
+        type: 'GET',
+        dataType: 'JSON',
+        url: '/charts/unresolved_alarms_chart',
+        success: function (response) {
+            myChart_unresolvedalarmss.data.datasets[0].data = response.critical_values;
+            myChart_unresolvedalarmss.data.datasets[1].data = response.high_values;
+            myChart_unresolvedalarmss.data.datasets[2].data = response.medium_values;
+            myChart_unresolvedalarmss.data.datasets[3].data = response.low_values;
+            myChart_unresolvedalarmss.data.labels = response.labels;
+            myChart_unresolvedalarmss.update();
+        }
+    });
+}
+getData_unresolvedalarms();

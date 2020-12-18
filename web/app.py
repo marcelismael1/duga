@@ -116,12 +116,15 @@ def charts(action):
 	if action == 'get_cve_types_chart':
 			get_cve_types_data = get_cve_severity()
 			return get_cve_types_data
-
 	elif action == "last_month_alarms_chart":
 			last_month_alarms = get_last_month_alarms()
 			return last_month_alarms
+	elif action == "unresolved_alarms_chart":
+			unresolved_alarms = get_unresolved_alarms()
+			return unresolved_alarms
+	else:
+    		return None
     		
-
 #########################################################################
 #							FUNCTIONS									#
 #########################################################################
@@ -174,6 +177,41 @@ def get_last_month_alarms():
         'values' : values
         }
 		return data
+
+def get_unresolved_alarms():
+        alarms = Alarms.objects.filter(resolved = False)
+        labels = list(set([alarm.ip for alarm in alarms ]))
+        critical_data = [0]*len(labels)
+        high_data = [0]*len(labels)
+        medium_data = [0]*len(labels)
+        low_data = [0]*len(labels)
+
+        for i in range(len(labels)):
+            for alarm in alarms:
+                if labels[i] == alarm.ip:
+                    cve_list = alarm.cve_list
+                    severity = get_crit_severity(list(cve_list.values()))
+                    if severity == "CRITICAL":
+                        critical_data[i] += 1
+                    elif severity == "HIGH":
+                        high_data[i] += 1
+                    elif severity == "MEDIUM":
+                        medium_data[i] +=1
+                    elif severity == "LOW":
+                        low_data[i] += 1
+                    else:
+                        None
+
+        values = [critical_data, high_data, medium_data, low_data ]
+        data = {
+        'labels' : labels,
+        'critical_values' : critical_data,
+		'high_values' : high_data,
+		'medium_values' : medium_data,
+		'low_values' : low_data,
+        }
+        return data
+		
 ###-------------------------------------––-----------###
 def get_sys_config():
 	sys_config = Sys_conf.objects
